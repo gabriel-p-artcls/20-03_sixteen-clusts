@@ -1,0 +1,79 @@
+#
+# [ASteCA v0.2.4-dev]
+#
+# Created:  [2019-06-25 09:34:36]
+# Modified: [2019-06-25 09:34:52]
+#
+# NAME: Cluster's name.
+# c_x: Cluster's x center coordinate.
+# c_y: Cluster's y center coordinate.
+# r_cl: Cluster's radius.
+# e_rcl: Cluster's radius error.
+# r_c: Core radius (3-P King profile).
+# e_rc: Core radius error.
+# r_t: Tidal radius (3-P King profile).
+# e_rt: Tidal radius error.
+# kcp: King's profile concentration parameter.
+#
+# CI: 'Contamination index' is a  measure of the contamination of field
+#      stars in the cluster region. The closer to 1, the more contaminated 
+#      the cluster region is.
+# n_memb_k: Approximate number of cluster's members obtained integrating the
+#         fitted 3-P King profile (if it converged).
+# n_memb: Approximate number of cluster's members assuming a uniform
+#       background.
+# n_memb_da: Approximate number of cluster's members obtained via the DA
+#          algorithm.
+# memb_par: Members parameter comparing the approximate structural number of
+#           members ('n_memb') with the approximate photometric number of
+#           members ('n_memb_da').
+# a_f: Fraction of cluster's area that is present in frame.
+#
+# Parameters values are in the sense: mean, MAP/ML, median, mode.
+# Parameters uncertainties are: 16th, 84th percentiles, and STDDEV.
+# z: Metallicity value.
+# a: log(age).
+# E: extinction E(B-V).
+# d: Distance modulus.
+# M: Total initial mass.
+# b: Binary fraction.
+# Nt: Number of samples used to estimate the parameters values.
+#
+# f1 The background value is smaller than a third of the maximum radial
+#    density value.
+# f2 Not enough points found stabilized around the background value -->
+#    clust_rad was set to the middle value in the density profile.
+# f3 The delta range around the background used to attain the stable
+#    condition to determine the radius is greater than 10%%. This indicates
+#    a possible variable background.
+# f4 The process to fit a 3-P King profile to the density points did not
+#    converge or did so to a tidal radius beyond the ranges of the frame.
+# f5 The number of approximate structural cluster members ('n_memb') is <10.
+# f6 The number of approximate structural and photometric cluster members
+#    differ greatly --> abs(n_memb_par) > 0.33.
+#
+# FC (flags count): Sum of all the flags values. The bigger this value the
+#    more likely it is that there's a problem with the frame, ie: no
+#    cluster, more than one cluster present in the frame, variable or too
+#    crowded field, etc.
+#
+#NAME                   c_x        c_y       r_cl      e_rcl        r_c       e_rc        r_t       e_rt      kcp      CI   n_memb_k     n_memb  n_memb_da  memb_par     a_f     z_mean      z_MAP   z_median     z_mode       16th       84th        std    R^2     a_mean      a_MAP   a_median     a_mode       16th       84th        std    R^2     E_mean      E_MAP   E_median     E_mode       16th       84th        std    R^2     d_mean      d_MAP   d_median     d_mode       16th       84th        std    R^2     M_mean      M_MAP   M_median     M_mode       16th       84th        std    R^2     b_mean      b_MAP   b_median     b_mode       16th       84th        std    R^2         Nt      f1 f2 f3 f4 f5 f6  FC
+bh87_match             1089       1283        700          0        nan        nan        nan        nan      nan    0.47        nan        180        319     -0.28    1.00   0.021459   0.024994   0.022663   0.024602   0.016924   0.025662  0.0042559   0.96      8.297      8.505      8.311       8.32      8.057      8.506     0.2164   0.98      0.582       0.58       0.58      0.577      0.572      0.592     0.0112   0.85     11.336     11.272     11.354     11.369     11.272     11.391   0.059715   0.86     1166.0      954.0     1109.0      982.0     929.38     1426.1     252.02   0.96        0.3        0.3        0.3        0.3        nan        nan        nan    nan   1.54E+04       0  0  0  1  0  0   1
+bh91_match             1100       1300        500          0        nan        nan        nan        nan      nan    0.72        nan         74        262     -0.56    1.00   0.022308    0.02118   0.022014    0.02095    0.01779   0.027854  0.0047991   0.96      8.474      8.631       8.53      8.593      8.123      8.779     0.2927   0.95      0.712      0.746      0.736      0.757       0.59      0.808     0.0904   0.93     13.257     13.399     13.282     13.356     12.998     13.454      0.245   0.97      509.0      473.0      482.0      464.0      395.2     626.96     126.66   0.93        0.3        0.3        0.3        0.3        nan        nan        nan    nan   1.19E+04       1  0  0  1  0  1   3
+bh106_match            1100       1100        500          0        nan        nan        nan        nan      nan    0.77        nan         64         52      0.10    1.00   0.012019  0.0088567   0.010681   0.010241  0.0088567   0.014468  0.0040885   0.76      9.951      9.987      9.957      9.982      9.922      9.987    0.03759   0.88      0.276      0.296      0.287      0.292      0.251      0.296     0.0254   0.81      13.83     13.997     13.913      13.95     13.602     13.995    0.21338   0.77     1797.0     1845.0     1845.0     1797.0     1524.5     2169.1      349.8   0.96        0.3        0.3        0.3        0.3        nan        nan        nan    nan   1.16E+04       1  0  0  1  0  0   2
+rup88_match            1250       1050        300          0        nan        nan        nan        nan      nan    0.79        nan         26         35     -0.15    1.00   0.010367   0.013038  0.0096978  0.0064409  0.0053014   0.014055  0.0051975   0.92      9.619      9.541      9.588      9.567      9.537      9.735     0.1185   0.91      0.342      0.331      0.337      0.337       0.32      0.399      0.056   0.94     14.566     14.746     14.695      14.73     14.294     14.847    0.37555   0.79      835.0     1047.0      878.0     1019.0      480.6     1050.5     293.66   0.96        0.3        0.3        0.3        0.3        nan        nan        nan    nan   2.16E+04       1  0  0  1  0  0   2
+ngc4230_match           970        970        400          0        nan        nan        nan        nan      nan    0.91        nan         37         92     -0.43    1.00  0.0087621   0.007701  0.0077006  0.0071318  0.0055332   0.011571  0.0050347   0.73      9.655      9.631      9.644      9.651      9.579      9.707    0.07867   0.93      0.193       0.21      0.202      0.206      0.157      0.229      0.039   0.87     15.319     15.176      15.33     15.305     15.176     15.521    0.25646   0.89     1389.0     1360.0     1360.0     1330.0     989.22     1602.1     485.47    0.9        0.3        0.3        0.3        0.3        nan        nan        nan    nan   1.35E+04       1  0  0  1  0  1   3
+loden565_match         1400       1140        400          0        nan        nan        nan        nan      nan    0.80        nan         46        110     -0.41    1.00   0.020156   0.027462   0.020496   0.026132   0.011484   0.027352  0.0066517   0.92      7.847        8.1      7.926      7.986      7.533      8.084     0.2375   0.88      0.907      0.891      0.905      0.896      0.892       0.92     0.0149    0.9     12.469     12.595     12.521     12.565     12.317     12.591    0.13702   0.85      345.0      273.0      345.0      355.0     274.99     397.65     69.569   0.96        0.3        0.3        0.3        0.3        nan        nan        nan    nan   2.15E+04       1  0  0  1  0  1   3
+rup87_match            1020       1420        300          0        nan        nan        nan        nan      nan    0.84        nan         11         62     -0.70    1.00   0.020116   0.024552   0.020213   0.024094   0.014029      0.025  0.0051166   0.96      9.173      9.142      9.168      9.168      9.142       9.22    0.06687   0.87       0.25      0.228      0.241      0.227      0.218      0.293     0.0387    0.9     13.779     13.522     13.771     14.013     13.479     14.081    0.31632   0.98      191.0      191.0      191.0      182.0     143.29     232.57     57.954   0.85        0.3        0.3        0.3        0.3        nan        nan        nan    nan   1.05E+04       1  0  0  1  0  1   3
+bh92_match              931       1284        380          0        nan        nan        nan        nan      nan    0.46        nan         68        138     -0.34    1.00  0.0093904  0.0064851  0.0093168    0.00955  0.0064791   0.011617  0.0029284   0.94      8.144       7.92      8.144      8.269      7.902      8.372     0.2157   0.96      0.621      0.655      0.618      0.598      0.588      0.658      0.033   0.95     11.562     11.462     11.541       11.5     11.448     11.673    0.12332   0.91      456.0      399.0      448.0      406.0     378.74     529.01     74.563   0.97        0.3        0.3        0.3        0.3        nan        nan        nan    nan   1.93E+04       0  0  0  1  0  1   2
+rup162_match           1300       1500        600          0        nan        nan        nan        nan      nan    0.75        nan        209        534     -0.44    0.97   0.003267  0.0027856  0.0029078  0.0028908  0.0019927  0.0042468  0.0015016   0.81      7.573      7.485      7.507      7.493      7.436      7.827     0.1558   0.78      0.459      0.474      0.468      0.471       0.43      0.478     0.0242   0.93     12.254     12.251     12.253     12.256     12.156     12.296    0.12524   0.88      531.0      523.0      523.0      515.0     476.19     582.69      92.22   0.87        0.3        0.3        0.3        0.3        nan        nan        nan    nan   2.32E+04       1  0  0  1  0  1   3
+trumpler12_match       1000       1150        400          0        nan        nan        nan        nan      nan    0.78        nan        119        384     -0.53    1.00  0.0058076   0.006047   0.005952  0.0059673  0.0049994  0.0063738  0.0013128   0.82      8.942      8.903      8.937      8.922      8.897      9.014    0.09872   0.89      0.256      0.288      0.263      0.275      0.229      0.284     0.0275   0.92     12.387     12.409     12.401     12.403     12.262     12.485    0.11919   0.95      636.0      718.0      627.0      609.0     553.46     721.31     97.164   0.97        0.3        0.3        0.3        0.3        nan        nan        nan    nan   1.41E+04       1  0  0  1  0  1   3
+bh85_match             1048       1425        450          0        nan        nan        nan        nan      nan    0.62        nan        133        301     -0.39    1.00   0.014818   0.015203   0.014757   0.014671   0.013409   0.015204  0.0023697   0.71      9.844      9.869      9.865      9.866      9.797      9.881    0.05458    0.9      0.302      0.284      0.291      0.286      0.283       0.34     0.0273   0.91      13.19      13.09     13.135     13.098     13.089     13.345    0.12321   0.89     2618.0     2767.0     2767.0     2767.0     2377.2     2827.6     270.65   0.84        0.3        0.3        0.3        0.3        nan        nan        nan    nan   1.51E+04       0  0  0  1  0  1   2
+rup85_match            1090       1320        440          0        nan        nan        nan        nan      nan    0.40        nan        170        304     -0.28    1.00   0.019674   0.025893   0.020426   0.025786   0.012344   0.025912   0.006639   0.91      8.621      8.615      8.615      8.613      8.572      8.669    0.06377   0.93       1.08       1.06       1.07       1.06       1.05       1.14     0.0417   0.92     13.418     13.479      13.46      13.46     13.295     13.593    0.17536    0.9     3091.0     2727.0     2727.0     2667.0     2504.5     3900.4     649.47   0.93        0.3        0.3        0.3        0.3        nan        nan        nan    nan   2.18E+04       0  0  0  1  0  0   1
+lynga15_match          2520       1690        600          0        nan        nan        nan        nan      nan    0.76        nan        158        481     -0.51    1.00  0.0059948  0.0059159  0.0059159  0.0059396  0.0055939  0.0062007 0.00086094   0.55      9.929      9.938       9.94      9.947      9.921      9.971    0.06299   0.65      0.273      0.271      0.271      0.272      0.248      0.294     0.0228   0.92     11.079     11.035     11.048      11.04     11.019     11.142   0.081641   0.76      491.0      491.0      491.0      491.0     411.33     562.69     92.207   0.86        0.3        0.3        0.3        0.3        nan        nan        nan    nan   1.42E+04       1  0  0  1  0  1   3
+bh73_match             2085       2056        305          0        nan        nan        nan        nan      nan    0.59        nan         71        141     -0.33    1.00   0.020966   0.020808   0.020808   0.020605   0.017189   0.025513   0.004578   0.97      9.776      9.783      9.779      9.779      9.701      9.851    0.08208   0.98      0.653      0.623      0.646      0.633      0.621      0.692     0.0368   0.93      12.39     12.106     12.364     12.117     12.082     12.724    0.29436   0.92     1776.0      978.0     1776.0     1058.0     982.45     2657.5     805.69   0.92        0.3        0.3        0.3        0.3        nan        nan        nan    nan   1.23E+04       0  0  0  1  0  1   2
+ngc4349_match          1915       2213        600          0        nan        nan        nan        nan      nan    0.82        nan        333        814     -0.42    1.00   0.023118   0.027674   0.026092   0.027233   0.014512   0.027688  0.0058084   0.83       8.45      8.598      8.452      8.462       8.32      8.598     0.1348   0.93      0.423      0.401      0.416      0.404        0.4      0.453     0.0251   0.92     12.105     12.194     12.118     12.164     12.002     12.208    0.13254   0.95     1227.0     1106.0     1136.0     1136.0     1048.0     1489.2     239.63   0.91        0.3        0.3        0.3        0.3        nan        nan        nan    nan   1.33E+04       1  0  0  1  0  1   3
+# v not stored for some reason
+#                         z   log(age)     E_BV        dm     M
+trumpler13_match    0.00726      7.427    0.554    13.003    505
+

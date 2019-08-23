@@ -1,0 +1,499 @@
+LODEN565
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:127: UserWarning: p-value capped: true value larger than 0.25
+  return [list(anderson_ksamp([pmRA_in, pmRA_out])),
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:138: UserWarning: p-value capped: true value larger than 0.25
+  AD_ks, cv_ka, pv_ks = anderson_ksamp([plx_in, plx_out])
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:734: UserWarning: Warning: 'partition' will ignore the 'mask' of the MaskedColumn.
+  a.partition(kth, axis=axis, kind=kind, order=order)
+AD: 0.250, 0.250, 0.120
+Combined p-value: 0.134
+Stars with no match: 0
+Preparing LODEN565 Plx data
+ Iteration (1000), autocorr time
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/emcee3rc2/autocorr.py:38: RuntimeWarning: invalid value encountered in true_divide
+  acf /= acf[0]
+0 nan
+100 8.375342045010086
+200 15.68622897289006
+300 17.06994038680054
+400 24.565278532297786
+500 31.97824356564704
+600 35.97930467844813
+700 38.03092499073464
+800 34.99637292321959
+900 33.52316074483278
+Plx_Bys: 2.298, 2.500, 2.652
+Mean acceptance fraction: 0.798
+Autocorrelation time: 33.78
+QApplication: invalid style override passed, ignoring it.
+Plotting
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:734: UserWarning: Warning: 'partition' will ignore the 'mask' of the MaskedColumn.
+  a.partition(kth, axis=axis, kind=kind, order=order)
+Done
+
+vdBH85
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:127: UserWarning: p-value floored: true value smaller than 0.001
+  return [list(anderson_ksamp([pmRA_in, pmRA_out])),
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:128: UserWarning: p-value floored: true value smaller than 0.001
+  list(anderson_ksamp([pmDEC_in, pmDEC_out]))]
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:138: UserWarning: p-value floored: true value smaller than 0.001
+  AD_ks, cv_ka, pv_ks = anderson_ksamp([plx_in, plx_out])
+AD: 0.001, 0.001, 0.001
+Combined p-value: 0.000
+Stars with no match: 0
+Preparing vdBH85 Plx data
+ Iteration (1000), autocorr time
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/emcee3rc2/autocorr.py:38: RuntimeWarning: invalid value encountered in true_divide
+  acf /= acf[0]
+0 nan
+100 7.885818118764673
+200 13.722620181235845
+300 16.020874488998185
+400 16.312366301050258
+500 14.354675983078211
+600 15.387967921219783
+700 18.829300355042523
+800 18.531007571756007
+900 18.714683145673824
+Plx_Bys: 4.812, 5.099, 5.345
+Mean acceptance fraction: 0.787
+Autocorrelation time: 17.58
+Plotting
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/numeric.py:538: UserWarning: Warning: converting a masked element to nan.
+  return array(a, dtype, copy=False, order=order)
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:734: UserWarning: Warning: 'partition' will ignore the 'mask' of the MaskedColumn.
+  a.partition(kth, axis=axis, kind=kind, order=order)
+Done
+
+vdBH73
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:127: UserWarning: p-value floored: true value smaller than 0.001
+  return [list(anderson_ksamp([pmRA_in, pmRA_out])),
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:128: UserWarning: p-value floored: true value smaller than 0.001
+  list(anderson_ksamp([pmDEC_in, pmDEC_out]))]
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:138: UserWarning: p-value floored: true value smaller than 0.001
+  AD_ks, cv_ka, pv_ks = anderson_ksamp([plx_in, plx_out])
+AD: 0.001, 0.001, 0.001
+Combined p-value: 0.000
+Stars with no match: 0
+Preparing vdBH73 Plx data
+ Iteration (1000), autocorr time
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/emcee3rc2/autocorr.py:38: RuntimeWarning: invalid value encountered in true_divide
+  acf /= acf[0]
+0 nan
+100 7.746654912420363
+200 12.923365836159359
+300 15.323603319136016
+400 16.51439198678091
+500 21.070248723230357
+600 33.53103015025808
+700 37.9890210792467
+800 35.19934663331829
+900 31.096598780085635
+Plx_Bys: 3.994, 4.317, 4.620
+Mean acceptance fraction: 0.811
+Autocorrelation time: 27.95
+Plotting
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/numeric.py:538: UserWarning: Warning: converting a masked element to nan.
+  return array(a, dtype, copy=False, order=order)
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:734: UserWarning: Warning: 'partition' will ignore the 'mask' of the MaskedColumn.
+  a.partition(kth, axis=axis, kind=kind, order=order)
+Done
+
+vdBH92
+AD: 0.131, 0.009, 0.019
+Combined p-value: 0.002
+Stars with no match: 0
+Preparing vdBH92 Plx data
+ Iteration (1000), autocorr time
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/emcee3rc2/autocorr.py:38: RuntimeWarning: invalid value encountered in true_divide
+  acf /= acf[0]
+0 nan
+100 10.176652634368914
+200 10.254707284901224
+300 14.975353060658396
+400 16.969911420629707
+500 21.944753594327803
+600 21.184345606949808
+700 21.996212917927135
+800 24.56478528354356
+900 28.459194735197556
+Plx_Bys: 2.095, 2.202, 2.284
+Mean acceptance fraction: 0.783
+Autocorrelation time: 27.16
+Plotting
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:734: UserWarning: Warning: 'partition' will ignore the 'mask' of the MaskedColumn.
+  a.partition(kth, axis=axis, kind=kind, order=order)
+Done
+
+NGC4230
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:127: UserWarning: p-value capped: true value larger than 0.25
+  return [list(anderson_ksamp([pmRA_in, pmRA_out])),
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:128: UserWarning: p-value capped: true value larger than 0.25
+  list(anderson_ksamp([pmDEC_in, pmDEC_out]))]
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:138: UserWarning: p-value capped: true value larger than 0.25
+  AD_ks, cv_ka, pv_ks = anderson_ksamp([plx_in, plx_out])
+AD: 0.250, 0.250, 0.250
+Combined p-value: 0.216
+Stars with no match: 0
+Preparing NGC4230 Plx data
+ Iteration (1000), autocorr time
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/emcee3rc2/autocorr.py:38: RuntimeWarning: invalid value encountered in true_divide
+  acf /= acf[0]
+0 nan
+100 8.688015963529999
+200 14.348279222487367
+300 16.296855735826743
+400 19.53067926492747
+500 17.93333164565146
+600 17.91820590048919
+700 18.31512070026441
+800 18.177096593415317
+900 20.093313384642943
+Plx_Bys: 2.327, 2.625, 2.913
+Mean acceptance fraction: 0.808
+Autocorrelation time: 19.14
+Plotting
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:734: UserWarning: Warning: 'partition' will ignore the 'mask' of the MaskedColumn.
+  a.partition(kth, axis=axis, kind=kind, order=order)
+Done
+
+RUP85
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:127: UserWarning: p-value floored: true value smaller than 0.001
+  return [list(anderson_ksamp([pmRA_in, pmRA_out])),
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:128: UserWarning: p-value floored: true value smaller than 0.001
+  list(anderson_ksamp([pmDEC_in, pmDEC_out]))]
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:138: UserWarning: p-value floored: true value smaller than 0.001
+  AD_ks, cv_ka, pv_ks = anderson_ksamp([plx_in, plx_out])
+AD: 0.001, 0.001, 0.001
+Combined p-value: 0.000
+Stars with no match: 0
+Preparing RUP85 Plx data
+ Iteration (1000), autocorr time
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/emcee3rc2/autocorr.py:38: RuntimeWarning: invalid value encountered in true_divide
+  acf /= acf[0]
+0 nan
+100 9.278762584962568
+200 14.65574793490022
+300 22.007401597076388
+400 20.985178932071438
+500 21.587875584861223
+600 19.553096566629222
+700 20.6224646723112
+800 21.334879756058314
+900 21.654550856897462
+Plx_Bys: 3.996, 4.163, 4.330
+Mean acceptance fraction: 0.776
+Autocorrelation time: 22.74
+Plotting
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:734: UserWarning: Warning: 'partition' will ignore the 'mask' of the MaskedColumn.
+  a.partition(kth, axis=axis, kind=kind, order=order)
+Done
+
+vdBH106
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:127: UserWarning: p-value capped: true value larger than 0.25
+  return [list(anderson_ksamp([pmRA_in, pmRA_out])),
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:128: UserWarning: p-value capped: true value larger than 0.25
+  list(anderson_ksamp([pmDEC_in, pmDEC_out]))]
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:138: UserWarning: p-value capped: true value larger than 0.25
+  AD_ks, cv_ka, pv_ks = anderson_ksamp([plx_in, plx_out])
+AD: 0.250, 0.250, 0.250
+Combined p-value: 0.216
+Stars with no match: 0
+Preparing vdBH106 Plx data
+ Iteration (1000), autocorr time
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/emcee3rc2/autocorr.py:38: RuntimeWarning: invalid value encountered in true_divide
+  acf /= acf[0]
+0 nan
+100 6.076508333693203
+200 14.696893492536624
+300 16.5948106073493
+400 14.87092371198922
+500 15.37804290301477
+600 14.666640874864497
+700 15.58573228620638
+800 15.943089296524757
+900 17.503889642670206
+Plx_Bys: 3.865, 4.212, 4.545
+Mean acceptance fraction: 0.817
+Autocorrelation time: 18.46
+Plotting
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:734: UserWarning: Warning: 'partition' will ignore the 'mask' of the MaskedColumn.
+  a.partition(kth, axis=axis, kind=kind, order=order)
+Done
+
+TR13
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:127: UserWarning: p-value floored: true value smaller than 0.001
+  return [list(anderson_ksamp([pmRA_in, pmRA_out])),
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:128: UserWarning: p-value floored: true value smaller than 0.001
+  list(anderson_ksamp([pmDEC_in, pmDEC_out]))]
+AD: 0.055, 0.001, 0.001
+Combined p-value: 0.000
+Stars with no match: 0
+Preparing TR13 Plx data
+ Iteration (1000), autocorr time
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/emcee3rc2/autocorr.py:38: RuntimeWarning: invalid value encountered in true_divide
+  acf /= acf[0]
+0 nan
+100 10.092611515510141
+200 12.090211482072675
+300 12.616497428006403
+400 13.710246705846682
+500 13.792450183469702
+600 17.987284884504536
+700 16.96388641779181
+800 16.742083786596496
+900 16.924129907000747
+Plx_Bys: 3.834, 3.950, 4.070
+Mean acceptance fraction: 0.765
+Autocorrelation time: 19.47
+Plotting
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/numeric.py:538: UserWarning: Warning: converting a masked element to nan.
+  return array(a, dtype, copy=False, order=order)
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:734: UserWarning: Warning: 'partition' will ignore the 'mask' of the MaskedColumn.
+  a.partition(kth, axis=axis, kind=kind, order=order)
+Done
+
+RUP88
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:127: UserWarning: p-value capped: true value larger than 0.25
+  return [list(anderson_ksamp([pmRA_in, pmRA_out])),
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:128: UserWarning: p-value capped: true value larger than 0.25
+  list(anderson_ksamp([pmDEC_in, pmDEC_out]))]
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:138: UserWarning: p-value capped: true value larger than 0.25
+  AD_ks, cv_ka, pv_ks = anderson_ksamp([plx_in, plx_out])
+AD: 0.250, 0.250, 0.250
+Combined p-value: 0.216
+Stars with no match: 0
+Preparing RUP88 Plx data
+ Iteration (1000), autocorr time
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/emcee3rc2/autocorr.py:38: RuntimeWarning: invalid value encountered in true_divide
+  acf /= acf[0]
+0 nan
+100 6.564441902430998
+200 12.76106358430339
+300 15.78003352604171
+400 13.753674079648638
+500 16.738987655646195
+600 21.00834941905084
+700 22.4049630806561
+800 23.750271925450804
+900 32.69903919372024
+Plx_Bys: 3.550, 3.998, 4.463
+Mean acceptance fraction: 0.812
+Autocorrelation time: 24.77
+Plotting
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/numeric.py:538: UserWarning: Warning: converting a masked element to nan.
+  return array(a, dtype, copy=False, order=order)
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:734: UserWarning: Warning: 'partition' will ignore the 'mask' of the MaskedColumn.
+  a.partition(kth, axis=axis, kind=kind, order=order)
+Done
+
+RUP87
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:128: UserWarning: p-value capped: true value larger than 0.25
+  list(anderson_ksamp([pmDEC_in, pmDEC_out]))]
+AD: 0.162, 0.183, 0.250
+Combined p-value: 0.133
+Stars with no match: 0
+Preparing RUP87 Plx data
+ Iteration (1000), autocorr time
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/emcee3rc2/autocorr.py:38: RuntimeWarning: invalid value encountered in true_divide
+  acf /= acf[0]
+0 nan
+100 6.607180701967694
+200 18.03504679190942
+300 22.892756710821352
+400 25.370617028373623
+500 25.696809146441858
+600 23.132123070799075
+700 27.17575534057309
+800 30.801273089590207
+900 28.44234061642014
+Plx_Bys: 1.452, 1.773, 2.878
+Mean acceptance fraction: 0.726
+Autocorrelation time: 29.40
+Plotting
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:734: UserWarning: Warning: 'partition' will ignore the 'mask' of the MaskedColumn.
+  a.partition(kth, axis=axis, kind=kind, order=order)
+Done
+
+NGC4349
+AD: 0.008, 0.002, 0.053
+Combined p-value: 0.000
+Stars with no match: 0
+Preparing NGC4349 Plx data
+ Iteration (1000), autocorr time
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/emcee3rc2/autocorr.py:38: RuntimeWarning: invalid value encountered in true_divide
+  acf /= acf[0]
+0 nan
+100 10.17417348225444
+200 15.786030596753708
+300 23.42937069111683
+400 28.94926221309264
+500 25.981233783186497
+600 24.38858305551192
+700 25.897309218519933
+800 24.275909470051644
+900 22.615150071886273
+Plx_Bys: 1.953, 2.012, 2.094
+Mean acceptance fraction: 0.597
+Autocorrelation time: 22.37
+Plotting
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/numeric.py:538: UserWarning: Warning: converting a masked element to nan.
+  return array(a, dtype, copy=False, order=order)
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:734: UserWarning: Warning: 'partition' will ignore the 'mask' of the MaskedColumn.
+  a.partition(kth, axis=axis, kind=kind, order=order)
+Done
+
+RUP162
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:127: UserWarning: p-value capped: true value larger than 0.25
+  return [list(anderson_ksamp([pmRA_in, pmRA_out])),
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:128: UserWarning: p-value capped: true value larger than 0.25
+  list(anderson_ksamp([pmDEC_in, pmDEC_out]))]
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:138: UserWarning: p-value capped: true value larger than 0.25
+  AD_ks, cv_ka, pv_ks = anderson_ksamp([plx_in, plx_out])
+AD: 0.250, 0.250, 0.250
+Combined p-value: 0.216
+Stars with no match: 0
+Preparing RUP162 Plx data
+ Iteration (1000), autocorr time
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/emcee3rc2/autocorr.py:38: RuntimeWarning: invalid value encountered in true_divide
+  acf /= acf[0]
+0 nan
+100 7.921651486451951
+200 12.239416022484537
+300 13.087370179749906
+400 16.414366105509522
+500 15.917241895677336
+600 16.69706052949748
+700 18.291258955624368
+800 17.923568788183893
+900 17.823563671879036
+Plx_Bys: 3.258, 3.408, 3.580
+Mean acceptance fraction: 0.747
+Autocorrelation time: 18.46
+Plotting
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/numeric.py:538: UserWarning: Warning: converting a masked element to nan.
+  return array(a, dtype, copy=False, order=order)
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:734: UserWarning: Warning: 'partition' will ignore the 'mask' of the MaskedColumn.
+  a.partition(kth, axis=axis, kind=kind, order=order)
+Done
+
+vdBH91
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:127: UserWarning: p-value capped: true value larger than 0.25
+  return [list(anderson_ksamp([pmRA_in, pmRA_out])),
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:128: UserWarning: p-value capped: true value larger than 0.25
+  list(anderson_ksamp([pmDEC_in, pmDEC_out]))]
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:138: UserWarning: p-value capped: true value larger than 0.25
+  AD_ks, cv_ka, pv_ks = anderson_ksamp([plx_in, plx_out])
+AD: 0.250, 0.250, 0.250
+Combined p-value: 0.216
+Stars with no match: 0
+Preparing vdBH91 Plx data
+ Iteration (1000), autocorr time
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/emcee3rc2/autocorr.py:38: RuntimeWarning: invalid value encountered in true_divide
+  acf /= acf[0]
+0 nan
+100 8.562902377545146
+200 15.904963028824419
+300 16.31131433922358
+400 17.327543418064746
+500 19.456069531735455
+600 18.36270564470888
+700 18.32714916183091
+800 24.91063972371837
+900 38.06065097047684
+Plx_Bys: 1.970, 2.121, 2.312
+Mean acceptance fraction: 0.789
+Autocorrelation time: 43.57
+Plotting
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/numeric.py:538: UserWarning: Warning: converting a masked element to nan.
+  return array(a, dtype, copy=False, order=order)
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:734: UserWarning: Warning: 'partition' will ignore the 'mask' of the MaskedColumn.
+  a.partition(kth, axis=axis, kind=kind, order=order)
+Done
+
+TR12
+AD: 0.199, 0.014, 0.017
+Combined p-value: 0.003
+Stars with no match: 1
+Preparing TR12 Plx data
+ Iteration (1000), autocorr time
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/emcee3rc2/autocorr.py:38: RuntimeWarning: invalid value encountered in true_divide
+  acf /= acf[0]
+0 nan
+100 10.364325436117907
+200 13.416220269561784
+300 17.904557236739596
+400 18.799679448535972
+500 20.594113533555124
+600 22.958086211797458
+700 25.592411903530937
+800 25.95653998970687
+900 27.398747058339193
+Plx_Bys: 3.159, 3.264, 3.376
+Mean acceptance fraction: 0.760
+Autocorrelation time: 29.39
+Plotting
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:734: UserWarning: Warning: 'partition' will ignore the 'mask' of the MaskedColumn.
+  a.partition(kth, axis=axis, kind=kind, order=order)
+Done
+
+LYNGA15
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:127: UserWarning: p-value capped: true value larger than 0.25
+  return [list(anderson_ksamp([pmRA_in, pmRA_out])),
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/plx_MPs_plots.py:128: UserWarning: p-value capped: true value larger than 0.25
+  list(anderson_ksamp([pmDEC_in, pmDEC_out]))]
+AD: 0.046, 0.250, 0.250
+Combined p-value: 0.069
+Stars with no match: 0
+Preparing LYNGA15 Plx data
+ Iteration (1000), autocorr time
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/emcee3rc2/autocorr.py:38: RuntimeWarning: invalid value encountered in true_divide
+  acf /= acf[0]
+0 nan
+100 9.231075349711835
+200 15.94213331066738
+300 18.511975580053356
+400 20.518362520166274
+500 18.005096807086694
+600 18.47755259460219
+700 17.814011695538987
+800 20.751458269884946
+900 21.316297500832654
+Plx_Bys: 2.563, 2.702, 2.863
+Mean acceptance fraction: 0.746
+Autocorrelation time: 21.55
+Plotting
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/numeric.py:538: UserWarning: Warning: converting a masked element to nan.
+  return array(a, dtype, copy=False, order=order)
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:734: UserWarning: Warning: 'partition' will ignore the 'mask' of the MaskedColumn.
+  a.partition(kth, axis=axis, kind=kind, order=order)
+Done
+
+vdBH87
+AD: 0.009, 0.001, 0.011
+Combined p-value: 0.000
+Stars with no match: 0
+Preparing vdBH87 Plx data
+ Iteration (1000), autocorr time
+/media/gabriel/rest/Dropbox_nosync/Papers/2019/xx-sixteen_clusts/6_analysis/1_parallax/emcee3rc2/autocorr.py:38: RuntimeWarning: invalid value encountered in true_divide
+  acf /= acf[0]
+0 nan
+100 10.46089089374243
+200 13.649704682416049
+300 15.570020120391135
+400 19.466418291783175
+500 18.911046237689852
+600 20.64802962245679
+700 19.19155364262793
+800 19.523526718010874
+900 20.21146673482123
+Plx_Bys: 2.036, 2.097, 2.163
+Mean acceptance fraction: 0.672
+Autocorrelation time: 20.55
+Plotting
+/home/gabriel/miniconda3/envs/asteca3/lib/python3.7/site-packages/numpy/core/fromnumeric.py:734: UserWarning: Warning: 'partition' will ignore the 'mask' of the MaskedColumn.
+  a.partition(kth, axis=axis, kind=kind, order=order)
+Done
+
+End
+>>> 
