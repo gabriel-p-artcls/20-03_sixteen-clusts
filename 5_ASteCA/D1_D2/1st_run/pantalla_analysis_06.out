@@ -1,0 +1,95 @@
+
+-------------------------------------------
+             [ASteCA v0.2.7-dev]
+-------------------------------------------
+
+Will load parameters from 'params_input_06.dat' file.
+
+Checking input parameters...
+
+  WARNING: params_input_06.dat file does not exist.
+  Falling back to 'params_input.dat' file.
+
+  WARNING: could not check for code updates.
+  Connection timed out after 3.0 sec.
+
+Filter: Gmag
+Color:  (Bmag-Vmag), (Umag-Bmag)
+
+Processing PARSEC v1.2S theoretical isochrones
+in the photometric systems:
+ * gaiaDR2
+ * ubvrijhk
+[####################] 100% 
+Interpolating extra points (1500) into the isochrones
+[#####---------------] 25% [##########----------] 50% [###############-----] 75% [####################] 100% 
+Generating binary data (b_mr=0.70)
+[####################] 100% 
+
+Grid values: 1 [z], 200 [log(age)]
+(Force matplotlib to not use Xwindows backend)
+
+Full check done.
+
+Number of clusters to analyze: 1
+
+Analyzing cluster bh106_match
+Stars read from input file: N=1221
+  WARNING: N=966 (79%) of stars contain
+  incomplete photometric data
+Frame's 2D histogram obtained
+Obtaining KDEs for the frame's coordinates
+<<Skip A1 block plot>>
+Manual center fixed: (1100, 1100) px
+Radial density profile (RDP) calculated
+Field density (2.8E-04 stars/px^2)
+Manual radius set: 500 px
+Area of cluster obtained
+Contamination index obtained (0.77)
+Processing complete dataset:
+  Stars rejected based on their errors (0)
+  Stars separated in/out of cluster's boundaries
+    WARNING: Number of FR defined (10) is larger than
+    the maximum allowed (3). Using max number
+Processing incomplete dataset:
+  Stars rejected based on their errors (47)
+  Stars separated in/out of cluster's boundaries
+    WARNING: Number of FR defined (10) is larger than
+    the maximum allowed (3). Using max number
+<<Skip A2 block plot>>
+Photometric analysis incompleteness function estimated
+Photometric completeness data function estimated
+Error removal function estimated
+Combined completeness function estimated
+<<Skip B1 block plot>>
+Luminosity function obtained
+Skipping field vs cluster A-D test
+  WARNING: only 9 true members estimated in cluster  region
+<<Skip B2 block plot>>
+Reading membership probabilities from file
+  WARNING: structural vs. photometric true cluster
+  members estimated differ by a factor > 2
+Removed 1 CMD outlier stars
+Stars selected in cluster region, 'local' method (21)
+Cluster region and MPs saved to file
+<<Skip C1 block plot>>
+<<Skip C2 block plot>>
+<<Skip C3 block plot>>
+Sampling selected IMF (kroupa_2002)
+Searching for optimal parameters
+Using bootstrap + Genetic Algorithm (dolphin; knuth)
+ 10% LP=42.2 (0.01500, 8.434, 0.915, 13.60, 894, 0.30) [212 m/s | 2h41m]
+ 20% LP=40.3 (0.01500, 8.434, 0.858, 13.73, 894, 0.30) [212 m/s | 2h23m]
+ 30% LP=33.4 (0.01500, 9.574, 0.371, 11.74, 847, 0.30) [212 m/s | 2h5m]
+ 40% LP=28.6 (0.01500, 9.574, 0.372, 11.74, 984, 0.30) [242 m/s | 1h47m]
+ 50% LP=28.6 (0.01500, 9.574, 0.372, 11.74, 984, 0.30) [265 m/s | 1h29m]
+  GA exit switch applied
+Skip bootstrap process
+Best fit parameters obtained
+Best fit synthetic cluster saved to file
+Analysis results added to output file
+<<Plots for D1 block created>>
+<<Plots for D2 block created>>
+End of analysis for bh106_match in 1h 33m 38s
+
+Full run completed in 1h 33m 46s

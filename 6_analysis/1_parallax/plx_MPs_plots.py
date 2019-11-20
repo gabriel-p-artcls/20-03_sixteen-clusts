@@ -14,22 +14,22 @@ from emcee3rc2 import ensemble
 
 
 names_dict = {
-    'loden565': ('LODEN565', 12.595, 0.13702),
-    'bh85': ('vdBH85', 13.09, 0.12321),
-    'bh73': ('vdBH73', 12.106, 0.29436),
-    'bh92': ('vdBH92', 11.462, 0.12332),
-    'ngc4230': ('NGC4230', 15.176, 0.25646),
-    'rup85': ('RUP85', 13.479, 0.17536),
-    'bh106': ('vdBH106', 13.997, 0.21338),
-    'trumpler13': ('TR13', 13.003, 0.124),
-    'rup88': ('RUP88', 14.746, 0.37555),
-    'rup87': ('RUP87', 13.522, 0.31632),
-    'ngc4349': ('NGC4349', 12.194, 0.13254),
-    'rup162': ('RUP162', 12.251, 0.12524),
-    'bh91': ('vdBH91', 13.399, 0.245),
-    'trumpler12': ('TR12', 12.409, 0.11919),
-    'lynga15': ('LYNGA15', 11.035, 0.081641),
-    'bh87': ('vdBH87', 11.272, 0.059715)
+    'loden565': ('LODEN565', 13.247, 0.251),
+    'bh85': ('vdBH85', 13.317, 0.12085),
+    'bh73': ('vdBH73', 13.498, 0.26366),
+    'bh92': ('vdBH92', 12.066, 0.092136),
+    'ngc4230': ('NGC4230', 13.167, 0.58768),
+    'rup85': ('RUP85', 13.556, 0.14048),
+    'bh106': ('vdBH106', 13.437, 0.36267),
+    'trumpler13': ('TR13', 13.954, 0.17795),
+    'rup88': ('RUP88', 13.704, 0.52557),
+    'rup87': ('RUP87', 11.636, 0.88644),
+    'ngc4349': ('NGC4349', 11.708, 0.090487),
+    'rup162': ('RUP162', 13.23, 0.10038),
+    'bh91': ('vdBH91', 11.03, 0.17141),
+    'trumpler12': ('TR12', 12.721, 0.08997),
+    'lynga15': ('LYNGA15', 11.741, 0.15512),
+    'bh87': ('vdBH87', 11.437, 0.06779)
 }
 
 
@@ -49,10 +49,10 @@ def main():
 
         # Add Lindegren offset to parallax
         # plx_data_full['Plx'] = plx_data_full['Plx'] + 0.029
+        # Add  Schönrich offset to parallax
+        # plx_data_full['Plx'] = plx_data_full['Plx'] + 0.054
         # Add Shuangjing offset to parallax
         # plx_data_full['Plx'] = plx_data_full['Plx'] + 0.075
-        # Add  Schönrich offset to parallax
-        plx_data_full['Plx'] = plx_data_full['Plx'] + 0.054
 
         # Separate stars in/out the cluster region.
         msk_in = np.array([
@@ -94,8 +94,29 @@ def main():
         # Parallax data.
         print("Preparing {} Plx data".format(clust_name))
         plx_bay, ph_plx, pl_plx = plxPlot(
-            plx_data_in['Plx'], plx_data_in['e_Plx'], mp_data['Gmag'],
-            mp_data['MP'], nwalkers=5, nruns=1000)
+            clust_name, plx_data_in['Plx'], plx_data_in['e_Plx'],
+            mp_data['Gmag'], mp_data['MP'], nwalkers=5, nruns=1000)
+
+        # Used to change the decimal places without changing the values, for
+        # the article.
+        # plxes = {
+        #     'LODEN565': (3.015, 3.248, 3.500),
+        #     'vdBH85': (7.798, 8.228, 8.660),
+        #     'vdBH73': (5.041, 5.482, 5.931),
+        #     'vdBH92': (2.499, 2.606, 2.722),
+        #     'NGC4230': (2.593, 2.968, 3.384),
+        #     'RUP85': (5.063, 5.298, 5.539),
+        #     'vdBH106': (5.034, 5.407, 5.804),
+        #     'TR13': (5.100, 5.250, 5.421),
+        #     'RUP88': (5.169, 5.722, 6.211),
+        #     'RUP87': (1.537, 1.676, 1.916),
+        #     'NGC4349': (2.105, 2.115, 2.154),
+        #     'RUP162': (4.788, 4.973, 5.179),
+        #     'vdBH91': (2.987, 3.157, 3.333),
+        #     'TR12': (3.941, 4.084, 4.221),
+        #     'LYNGA15': (3.442, 3.681, 3.898),
+        #     'vdBH87': (2.356, 2.428, 2.495)}
+        # pl_plx, plx_bay, ph_plx = plxes[clust_name]
 
         # Make final plot
         fig = plt.figure(figsize=(30, 25))
@@ -147,7 +168,7 @@ def ADtest_plx(msk_in, plx_data_full):
             x_fl_kde_max, x_fl_kde_min]
 
 
-def plxPlot(plx, e_plx, mmag, mp, nwalkers, nruns):
+def plxPlot(clust_name, plx, e_plx, mmag, mp, nwalkers, nruns):
     """
     Parameters for the parallax plot.
     """
@@ -161,6 +182,7 @@ def plxPlot(plx, e_plx, mmag, mp, nwalkers, nruns):
 
         def distFunc(r_i):
             sc_int = .5 * exp1(.5 * ((r_i - mu) / lim_u)**2)
+            sc_int.T[np.isinf(sc_int.T)] = 0.
             return B2 * sc_int
 
         # Double integral
@@ -174,10 +196,12 @@ def plxPlot(plx, e_plx, mmag, mp, nwalkers, nruns):
         """
         if w_t < 0.:
             return -np.inf
-        return -0.5 * ((w_p - w_t)**2 / s_p**2)
+        return -0.5 * ((w_p - w_t) / s_p)**2
 
     def lnprob(w_t, x, B2, w_p, s_p):
         lp = lnprior(w_t, w_p, s_p)
+        if np.isinf(lp):
+            return -np.inf
         return lp + lnlike(w_t, x, B2)
 
     # Define the 'r_i' values used to evaluate the integral.
@@ -224,7 +248,8 @@ def plxPlot(plx, e_plx, mmag, mp, nwalkers, nruns):
     # Median estimator of samples.
     # 16th, 84th percentiles
     pl_plx, plx_bay, ph_plx = np.percentile(samples, [16, 50, 84])
-    print("Plx_Bys: {:.3f}, {:.3f}, {:.3f}".format(pl_plx, plx_bay, ph_plx))
+    print("Plx Bys '{}': ({:.3f}, {:.3f}, {:.3f}),".format(
+        clust_name, pl_plx, plx_bay, ph_plx))
 
     m_accpt_fr = np.mean(sampler.acceptance_fraction)
     print("Mean acceptance fraction: {:.3f}".format(m_accpt_fr))
@@ -270,18 +295,20 @@ def finalPLot(
         ecolor='grey', label=None)
 
     # Bayesian
-    d_pc = Distance((1000. * plx_bay), unit='pc')
-    dl_pc = Distance((1000. * pl_plx), unit='pc')
-    dh_pc = Distance((1000. * ph_plx), unit='pc')
+    d_pc = Distance((1000. * round(plx_bay, 2)), unit='pc')
+    dl_pc = Distance((1000. * round(pl_plx, 2)), unit='pc')
+    dh_pc = Distance((1000. * round(ph_plx, 2)), unit='pc')
     plt.axvline(
         x=1. / plx_bay, linestyle='--', color='b', lw=1.2, zorder=5,
         label=r"$Plx_{{Bayes}}$")
 
     plx_asteca = 1000. / 10 ** ((dm_asteca + 5.) / 5.)
-    pc50_asteca = 1000. / plx_asteca
-    e_pc_asteca = .2 * np.log(10.) * pc50_asteca * e_dm
+    pc50_asteca = round(1. / plx_asteca, 2)
+    e_pc_asteca = round(.2 * np.log(10.) * pc50_asteca * e_dm, 2)
     pc16_asteca = pc50_asteca - e_pc_asteca
     pc84_asteca = pc50_asteca + e_pc_asteca
+    pc50_asteca, pc16_asteca, pc84_asteca = 1000. * pc50_asteca,\
+        1000. * pc16_asteca, 1000. * pc84_asteca
     plt.axvline(
         x=plx_asteca, linestyle=':', color='g', lw=1.5, zorder=5,
         label=r"$Plx_{{AsteCA}}$")
