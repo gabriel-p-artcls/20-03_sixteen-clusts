@@ -93,9 +93,9 @@ def main():
 
         # Parallax data.
         print("Preparing {} Plx data".format(clust_name))
-        plx_bay, ph_plx, pl_plx = plxPlot(
+        plx_bay, ph_plx, pl_plx, chains = plxPlot(
             clust_name, plx_data_in['Plx'], plx_data_in['e_Plx'],
-            mp_data['Gmag'], mp_data['MP'], nwalkers=5, nruns=1000)
+            mp_data['Gmag'], mp_data['MP'], nwalkers=10, nruns=10000)
 
         # Used to change the decimal places without changing the values, for
         # the article.
@@ -124,13 +124,24 @@ def main():
         print("Plotting")
         finalPLot(
             fig, gs, clust_name, AD_data_pm, AD_data, mp_data['Gmag'],
-            mp_data['MP'], plx_data_in['Plx'],
-            plx_data_in['e_Plx'], plx_bay, ph_plx, pl_plx, plx_out, e_plx_out,
-            dm_asteca, e_dm)
+            mp_data['MP'], plx_data_in['Plx'], plx_data_in['e_Plx'],
+            plx_bay, ph_plx, pl_plx, plx_out, e_plx_out, dm_asteca, e_dm)
         fig.tight_layout()
         plt.savefig(
             'output/plx_' + clust_name + '.png', dpi=300,
             bbox_inches='tight')
+
+        plt.style.use('seaborn-darkgrid')
+        fig = plt.figure(figsize=(30, 25))
+        gs = gridspec.GridSpec(4, 1)
+        ax = plt.subplot(gs[0])
+        ax.minorticks_on()
+        plt.plot(chains.T[0], alpha=.5)
+        fig.tight_layout()
+        plt.savefig(
+            'output/chain_' + clust_name + '.png', dpi=300,
+            bbox_inches='tight')
+
         plt.clf()
         plt.close("all")
 
@@ -173,6 +184,9 @@ def plxPlot(clust_name, plx, e_plx, mmag, mp, nwalkers, nruns):
     Parameters for the parallax plot.
     """
 
+    # Turn off the MPs
+    mp = 1.
+
     def lnlike(mu, x, B2):
         """
         Model defined in Bailer-Jones (2015), Eq (20), The shape parameter s_c
@@ -211,14 +225,20 @@ def plxPlot(clust_name, plx, e_plx, mmag, mp, nwalkers, nruns):
     B1 = ((plx - (1. / x)) / e_plx)**2
     B2 = (np.exp(-.5 * B1) / e_plx)
 
-    # Use DE to estimate the ML
-    def DEdist(model):
-        return -lnlike(model, x, B2)
-    bounds = [[0., 20.]]
-    result = DE(DEdist, bounds, popsize=20, maxiter=50)
+    # # Use DE to estimate the ML
+    # def DEdist(model):
+    #     return -lnlike(model, x, B2)
+    # bounds = [[0., 20.]]
+    # result = DE(DEdist, bounds, popsize=20, maxiter=50)
+    # print(result.x)
 
     # Prior parameters.
-    w_p, s_p = result.x, 1.
+    # This is the mean for the Gaussian prior. Set it to 3 Kpc wich is sort
+    # of the middle point in the distance range
+    w_p = np.array([3.]) # result.x
+    # This is the STTDEV of the Gaussian prior. Set it to 50 kpc so it is
+    # basically a uniform prior
+    s_p = 50.
     # Define the 'r_i' values used to evaluate the integral.
     int_max = w_p + 5.
     N = int(int_max / 0.01)
@@ -230,7 +250,8 @@ def plxPlot(clust_name, plx, e_plx, mmag, mp, nwalkers, nruns):
     sampler = ensemble.EnsembleSampler(
         nwalkers, ndim, lnprob, args=(x, B2, w_p, s_p))
     # Initial guesses.
-    pos = [w_p + .5 * np.random.normal() for i in range(nwalkers)]
+    # pos0 = [w_p + .5 * np.random.normal() for i in range(nwalkers)]
+    pos = [np.array([_]) for _ in np.linspace(0., 10., nwalkers).tolist()]
     # sampler.run_mcmc(pos, nruns)
     print(" Iteration ({}), autocorr time".format(nruns))
     for i, _ in enumerate(sampler.sample(pos, iterations=nruns)):
@@ -256,7 +277,7 @@ def plxPlot(clust_name, plx, e_plx, mmag, mp, nwalkers, nruns):
     print("Autocorrelation time: {:.2f}".format(
         sampler.get_autocorr_time(tol=0)[0]))
 
-    return plx_bay, ph_plx, pl_plx
+    return plx_bay, ph_plx, pl_plx, sampler.chain[:, nburn:, :]
 
 
 def finalPLot(

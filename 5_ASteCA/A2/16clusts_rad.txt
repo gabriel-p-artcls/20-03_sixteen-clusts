@@ -1,0 +1,25 @@
+
+Rad1: OPENCLUST diameter (http://vizier.u-strasbg.fr/viz-bin/VizieR-3?-source=B/ocl/clusters)
+Rad2: radius used by us in the analysis
+
+  Name   |   Rad1   |   Rad2   |  Perc
+         | (arcmin) | (arcmin) | r1/r2
+---------------------------------------
+vdBH73   |  0.75    |   1.5    |   50
+vdBH85   |   1.5    |   2.2    |   68
+RUP87    |   2.0    |   1.5    |  133
+RUP85    |   1.5    |   2.2    |   68
+vdBH87   |   1.5    |   3.5    |   43
+vdBH92   |   1.0    |   2.0    |   50
+TR12     |   2.0    |   2.0    |  100
+vdBH91   |   2.5    |   2.5    |  100
+TR13     |   2.5    |   2.5    |  100
+vdBH106  |   1.5    |   2.5    |   60
+RUP88    |   2.5    |   1.5    |  167 <-- 3
+RUP162   |   2.5    |   3.0    |   83
+Lynga15  |   4.0    |   3.0    |  133
+Loden565 |   8.0    |   2.0    |  400 <-- 1
+NGC4230  |   5.0    |   2.0    |  250 <-- 2
+NGC4349  |   2.5    |   3.0    |   83
+
+

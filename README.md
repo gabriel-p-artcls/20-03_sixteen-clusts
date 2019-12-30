@@ -9,6 +9,8 @@ Contents of folders outside of repo:
 
 Contents of folders inside of repo:
 
+* `0_obs_clusters`: images and code to generate the three figures of the
+  original observed V frames.
 * `2_bh73_phot`: `11_short_exp` contains the final photometry used for this
   cluster. More details in the `README.md` file in the `2_bh73_phot` folder
   not synced with the repo.

@@ -16,6 +16,23 @@ def main(
 
         # ASteCA distance modulus to parsecs
         dm, e_dm, log_age = asteca_data
+
+        # Possible BV correction: BV_G = BV + 0.0153
+        # Ag = cg * Av = cg * 3.1 * E_BV
+        # E_BV' = E_BV + 0.0153
+        #
+        # Ag = cg * 3.1 * E_BV; cg = 0.829
+        # Using the corrected E_BV':
+        # Ag' = cg * 3.1 * E_BV' = cg * 3.1 * E_BV + (cg * 3.1 * 0.0153) -->
+        # Ag' = Ag + 0.03932
+        # The observed magnitude is created as:
+        # m_obs = M_int + Ax + dist_mod
+        # using the corrected Ag':
+        # G_obs = G_int + Ag + 0.03932 + dist_mod
+        # moving the correction into the distance modulus:
+        # dist_mod' = 0.03932 + dist_mod
+        dm = dm + 0.04
+
         plx_asteca = 1. / (10 ** ((dm + 5.) / 5.))
         pc50_asteca = 1. / plx_asteca
         e_pc_asteca = .2 * np.log(10.) * pc50_asteca * e_dm
