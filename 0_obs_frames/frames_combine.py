@@ -18,8 +18,8 @@ Then do one (or two or three) 'Autocrop' with Kolourpaint.
 
 
 def makePlot(N, _img):
-    fig = plt.figure(figsize=(10, 15))
-    gs = gridspec.GridSpec(3, 2)
+    fig = plt.figure(figsize=(20, 20))
+    gs = gridspec.GridSpec(4, 4)
     for i, g in enumerate(gs):
         ax = plt.subplot(g)
         try:
@@ -63,7 +63,8 @@ set1 = [x for _, x in sorted(zip(set1[1], set1[0]))]
 
 _img = []
 # fix_w, fix_h = 1904, 1846
-for im in set1[:6]:
+# for im in set1[:6]:
+for im in set1:
     # _img.append(mimage.imread(r_path + im + '.png'))
     print(r_path + im + '.png')
     im_opn = Image.open(r_path + im + '.png')
@@ -78,22 +79,22 @@ for im in set1[:6]:
 
 makePlot(0, _img)
 
-_img = []
-for im in set1[6:12]:
-    im_opn = Image.open(r_path + im + '.png')
-    print(im, im_opn.getbbox())
-    im2 = im_opn.crop(im_opn.getbbox())
-    print(im2.size)
-    _img.append(im2)
+# _img = []
+# for im in set1[6:12]:
+#     im_opn = Image.open(r_path + im + '.png')
+#     print(im, im_opn.getbbox())
+#     im2 = im_opn.crop(im_opn.getbbox())
+#     print(im2.size)
+#     _img.append(im2)
 
-makePlot(1, _img)
+# makePlot(1, _img)
 
-_img = []
-for im in set1[12:]:
-    im_opn = Image.open(r_path + im + '.png')
-    print(im, im_opn.getbbox())
-    im2 = im_opn.crop(im_opn.getbbox())
-    print(im2.size)
-    _img.append(im2)
+# _img = []
+# for im in set1[12:]:
+#     im_opn = Image.open(r_path + im + '.png')
+#     print(im, im_opn.getbbox())
+#     im2 = im_opn.crop(im_opn.getbbox())
+#     print(im2.size)
+#     _img.append(im2)
 
-makePlot(2, _img)
+# makePlot(2, _img)

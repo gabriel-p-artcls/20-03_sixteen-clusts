@@ -7,7 +7,7 @@ import matplotlib.gridspec as gridspec
 
 def main(
     dm_asteca, prsc_nooffset, prsc_lindegren, prsc_schonrich,
-        prsc_shuangjing):
+        prsc_shuangjing, offset_flag=None, all_flag=False):
     """
     """
     parsec_data, plx_data = {}, {}
@@ -31,7 +31,23 @@ def main(
         # G_obs = G_int + Ag + 0.03932 + dist_mod
         # moving the correction into the distance modulus:
         # dist_mod' = 0.03932 + dist_mod
-        dm = dm + 0.04
+
+        if offset_flag is None:
+            offset = 0.
+        elif offset_flag == 'indiv':
+            # Individual Gaia offsets
+            mu_offset = {
+                'vdBH85': 0.004, 'vdBH106': -0.027, 'TR12': -0.022,
+                'RUP85': 0.028, 'vdBH73': 0.014, 'vdBH87': 0.041,
+                'TR13': 0.044, 'NGC4349': 0.02, 'vdBH92': 0.034,
+                'RUP162': 0.035}
+            offset = mu_offset[cl] * 3.1 * 0.829
+        elif offset_flag == 'mean':
+            # General mean offset
+            offset = 0.03932
+
+        # Apply offset
+        dm = dm + offset
 
         plx_asteca = 1. / (10 ** ((dm + 5.) / 5.))
         pc50_asteca = 1. / plx_asteca
@@ -93,31 +109,36 @@ def main(
     # plt.style.use('seaborn-darkgrid')
     xymin, xymax = 1550., 5995.
 
-    gsi = ((0, 2, 2, 4), (0, 2, 4, 6), (0, 2, 6, 8))
-    txt = (
-        'Lindegren et al. (0.029 mas)', 'Schönrich et al. (0.054 mas)',
-        'Xu et al. (0.075 mas)')
-    labels = ((True, False), (False, False), (False, True))
-    for j in range(1, 4):
-        dpcPlot(
-            gs, gsi[j - 1], xymin, xymax, txt[j - 1], parsec_data,
-            labels[j - 1], j)
+    if all_flag:
+        # Lindegren + Schönrich + Xu plot
+        gsi = ((0, 2, 2, 4), (0, 2, 4, 6), (0, 2, 6, 8))
+        txt = (
+            'Lindegren et al. (0.029 mas)', 'Schönrich et al. (0.054 mas)',
+            'Xu et al. (0.075 mas)')
+        labels = ((True, False), (False, False), (False, True))
+        for j in range(1, 4):
+            dpcPlot(
+                gs, gsi[j - 1], xymin, xymax, txt[j - 1], parsec_data,
+                labels[j - 1], j)
 
-    fig.tight_layout()
-    plt.savefig('dist_comparision1.png', dpi=150, bbox_inches='tight')
-    plt.clf()
-    plt.close("all")
+        fig.tight_layout()
+        plt.savefig('dist_comparision_all.png', dpi=150, bbox_inches='tight')
+        plt.clf()
+        plt.close("all")
+        return
 
-    fig = plt.figure(figsize=(25, 25))
-    gs = gridspec.GridSpec(10, 10)
+    # fig = plt.figure(figsize=(25, 25))
+    # gs = gridspec.GridSpec(20, 10)
+    fig = plt.figure(figsize=(35, 25))
+    gs = gridspec.GridSpec(10, 12)
     # plt.style.use('seaborn-darkgrid')
 
     dpcPlot(
         gs, (0, 2, 0, 2), xymin, xymax, 'No bias correction', parsec_data,
         (True, True), 4)
 
-    ax = plt.subplot(gs[2:4, 0:2])
-    # ax.set_title(r"No bias correction", fontsize=10)
+    ax = plt.subplot(gs[0:2, 2:4])
+    ax.tick_params(axis='both', which='major', labelsize=8)
     for cl, plxs_d in plx_data.items():
         # plxs = (ASteCA, Bayes)
         x, y, _, _, _ = plxs_d * 1000.
@@ -149,13 +170,13 @@ def main(
         np.nanmean(deltas), c='r', ls='--', lw=.7, zorder=1,
         label=r"$\Delta_{{mean}}$={:.3f}$_{{{:.3f}}}^{{{:.3f}}}$ [mas]".format(
             np.nanmean(deltas), _16th, _84th))
+    # plt.axhline(
+    #     np.nanmedian(deltas), c='g', ls='--', lw=.7, zorder=1,
+    #     label=r"$\Delta_{{median}}$={:.3f} [mas]".format(
+    #         np.nanmedian(deltas)))
     plt.errorbar(
         y, deltas, xerr=np.array([eyl, eyh]),
         fmt='.', elinewidth=.85, ms=4, ecolor='b', label=None)
-
-    # plt.axhline(np.nanedian(deltas), c='blue', ls='--', lw=.7, zorder=1,
-    #             label=r"$\Delta_{{median}}$ = {:.3f} [mas]".format(
-    #                 np.nanmedian(deltas)))
     plt.grid(ls=':', lw=.5, c='grey')
     # plt.xlabel(r'$Plx_{ASteCA}$ [mas]', fontsize=12)
     plt.xlabel(r'$Plx_{Bayes}$ [mas]', fontsize=12)
@@ -163,15 +184,22 @@ def main(
     plt.legend(loc=2, fontsize=10)
     cbar = plt.colorbar(pad=.01, fraction=.02, aspect=50)
     cbar.ax.tick_params(labelsize=9)
+    cbar.set_ticks([7.5, 8., 8.5, 9., 9.5])
+
+    # Lindegren plot
+    dpcPlot(
+        gs, (0, 2, 4, 6), xymin, xymax, 'Lindegren et al. (0.029 mas)',
+        parsec_data, (True, False), 1)
 
     fig.tight_layout()
-    plt.savefig('dist_comparision2.png', dpi=150, bbox_inches='tight')
+    plt.savefig('dist_comparision.png', dpi=300, bbox_inches='tight')
     plt.clf()
     plt.close("all")
 
 
 def dpcPlot(gs, gsi, xymin, xymax, txt, parsec_data, labels, j):
     ax = plt.subplot(gs[gsi[0]:gsi[1], gsi[2]:gsi[3]])
+    ax.tick_params(axis='both', which='major', labelsize=8)
     deltas, xyall = [], []
     for cl, dists in parsec_data.items():
         exl, x, exh, lage = dists[0]
@@ -190,13 +218,13 @@ def dpcPlot(gs, gsi, xymin, xymax, txt, parsec_data, labels, j):
         elif cl == 'NGC4349':
             xo, yo = 120., 0.
         elif cl == 'RUP162':
-            xo, yo = -840., -230.
+            xo, yo = -650., -130.
         elif cl == 'TR13':
-            xo, yo = -570., 50.
+            xo, yo = -400., 40.
         elif cl == 'RUP85':
             xo, yo = 100., -170.
         elif cl == 'vdBH106':
-            xo, yo = -950., 50.
+            xo, yo = -700., 50.
         elif cl == 'vdBH73':
             xo, yo = 40., 50.
         cl = cl + '*' if cl in ('RUP162', 'vdBH106') else cl
@@ -217,6 +245,7 @@ def dpcPlot(gs, gsi, xymin, xymax, txt, parsec_data, labels, j):
         ax.set_yticklabels([])
     if labels[1]:
         cbar.set_label(r"$\log(age)$", fontsize=10, labelpad=4)
+    cbar.set_ticks([7.5, 8., 8.5, 9., 9.5])
     plt.xlim(xymin, xymax)
     plt.ylim(xymin, xymax)
 
@@ -231,7 +260,7 @@ if __name__ == '__main__':
         'RUP85': (4.447, 4.640, 4.831),
         'vdBH106': (4.372, 4.771, 5.157),
         'TR13': (4.439, 4.584, 4.711),
-        'NGC4349': (1.980, 1.996, 2.035),
+        'NGC4349': (1.932, 1.964, 1.998),  # Actually uniform prior
         'RUP162': (4.185, 4.365, 4.553),
         'TR12': (3.505, 3.631, 3.758),
         'vdBH87': (2.200, 2.261, 2.323),
@@ -251,7 +280,7 @@ if __name__ == '__main__':
         'RUP85': (3.695, 3.830, 3.972),
         'vdBH106': (3.740, 4.057, 4.345),
         'TR13': (3.660, 3.751, 3.847),
-        'NGC4349': (1.807, 1.828, 1.863),
+        'NGC4349': (1.770, 1.800, 1.822),  # Actually uniform prior
         'RUP162': (3.542, 3.662, 3.806),
         'TR12': (3.017, 3.109, 3.207),
         'vdBH87': (1.996, 2.048, 2.095),
@@ -271,7 +300,7 @@ if __name__ == '__main__':
         'RUP85': (4.013, 4.164, 4.319),
         'vdBH106': (3.995, 4.311, 4.663),
         'TR13': (3.983, 4.100, 4.207),
-        'NGC4349': (1.863, 1.897, 1.945),
+        'NGC4349': (1.832, 1.862, 1.893),  # Actually uniform prior
         'RUP162': (3.798, 3.936, 4.101),
         'TR12': (3.223, 3.314, 3.424),
         'vdBH87': (2.077, 2.133, 2.185),
@@ -285,21 +314,22 @@ if __name__ == '__main__':
     }
 
     prsc_nooffset = {
-        # 'vdBH85': (7.798, 8.228, 8.660),
+        # MP>0. and a Gaussian prior
+        'vdBH85': (7.798, 8.228, 8.660),
         'vdBH73': (5.041, 5.482, 5.931),
         'vdBH92': (2.499, 2.606, 2.722),
-        'RUP85': (5.063, 5.298, 5.539),
+        'RUP85': (5.160, 5.393, 5.619),  # Actually uniform prior
         'vdBH106': (5.034, 5.407, 5.804),
         'TR13': (5.100, 5.250, 5.421),
-        'NGC4349': (2.105, 2.115, 2.154),
+        'NGC4349': (2.047, 2.082, 2.121),  # Actually uniform prior
         'RUP162': (4.788, 4.973, 5.179),
         'TR12': (3.941, 4.084, 4.221),
-        'vdBH87': (2.356, 2.428, 2.495),
+        'vdBH87': (2.352, 2.423, 2.487),  # Actually uniform prior
         #
         'LYNGA15': (3.442, 3.681, 3.898),
         'LODEN565': (3.015, 3.248, 3.500),
         'RUP88': (5.169, 5.722, 6.211),
-        'RUP87': (1.537, 1.676, 1.916),
+        'RUP87': (5.468, 6.188, 6.975),  # Actually uniform prior
         'vdBH91': (2.987, 3.157, 3.333),
         'NGC4230': (2.593, 2.968, 3.384)
     }
@@ -308,11 +338,11 @@ if __name__ == '__main__':
         'vdBH85': (13.317, 0.12085, 9.872),
         'vdBH106': (13.437, 0.36267, 9.482),
         'TR12': (12.721, 0.08997, 8.822),
-        'RUP85': (13.556, 0.14048, 8.444),
+        'RUP85': (13.405, 0.11791, 8.253),
         'vdBH73': (13.498, 0.26366, 8.893),
-        'vdBH87': (11.437, 0.06779, 8.307),
+        'vdBH87': (11.588, 0.098, 8.399),
         'TR13': (13.411, 0.15, 8.044),
-        'NGC4349': (11.708, 0.090487, 8.708),
+        'NGC4349': (11.459, 0.092, 8.233),
         'vdBH92': (12.066, 0.092136, 7.276),
         'RUP162': (13.23, 0.10038, 8.924),
         #
@@ -320,12 +350,14 @@ if __name__ == '__main__':
         # 'RUP88': (13.704, 0.52557, 9.741),
         # 'NGC4230': (13.167, 0.58768, 9.904),
         # 'LODEN565': (13.247, 0.251, 7.019),
-        # 'RUP87': (11.636, 0.88644, 9.7),
+        # 'RUP87': (12.96, 0.26, 9.49),
         # 'vdBH91': (11.03, 0.17141, 8.916)
     }
 
 
 if __name__ == '__main__':
+    offset_flag = None # 'mean' #'indiv'
+    all_flag = False
     main(
         dm_asteca, prsc_nooffset, prsc_lindegren, prsc_schonrich,
-        prsc_shuangjing)
+        prsc_shuangjing, offset_flag, all_flag)

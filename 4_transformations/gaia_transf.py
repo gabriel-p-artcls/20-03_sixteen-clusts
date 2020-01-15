@@ -23,13 +23,13 @@ def main():
         'bh87': 'vdBH87'}
 
     # # Print the per-cluster V, B, BV mean differences
-    # name = '16clusts_print'
+    name = '16clusts_print'
     # # Plot the combined transformations for the observed clusters
     # name = '16clusts'
     # # Plot the combined transformations for Carrasco's Landolt set
     # name = 'carrasco'
     # Plot the combined transformations for APASS fields
-    name = 'APASS'
+    # name = 'APASS'
 
     if name == 'carrasco':
         data_dict = loadCarrasco()

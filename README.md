@@ -51,18 +51,21 @@ The second run uses the restricted range in E_BV found above (stored in the
 Ranges for all parameters except binarity (fixed to 0.3) and metallicity (set to the entire range), are restricted as shown in the
 `3rd_input_param_ranges.ods` file.
 
-##### Fourth run
-
-Run again for vdBH85 and TR13.
+##### Third run (2)
 
 * vdBH85: shows a **very** large discrepancy in its distance estimate between the photometric (ASteCA) distance of ~4600 pc (13.32 mag) and the Gaia DR2 distance of ~8200 pc (14.57 mag). I attempted a new run, but the issue is with the parallaxes, not with the dm so I discarded it.
 
-* TR13: the previous run chose a very young age (log(age)=7), which results in a rather large distance (13.954 mag). Since this cluster has been studied before, we run it here again now restricting the log(age) to 8-9. The resulting best fit choses a log(age)~8, and a distance of 13.41 mag, much closer to Gaia DR2's estimate.
+* TR13: the previous run chose a very young age (log(age)=7), which results in a rather large distance (13.954 mag). Since this cluster has been studied before, we run it here again now restricting the log(age) to 8-9. The resulting best fit choses a log(age)~8, and a distance of 13.41 mag, much closer to Gaia DR2's estimate. **These results are merged into the 3rd run folder.**
 
-These results are merged into the 3rd run folder.
+##### Fourth run
 
+* NGC4349: the referee pointed out that the age for this cluster could be smaller. We run its analysis again with a cut on G=18 mag, the only way to get a smaller age (and distance) fitted. The G vs BV diagram shows bad fit in the upper section of the sequence.
 
+* RUP87: the referee asked to re-analyze this cluster using stars with larger MPs. We performed a careful selection of probable members and re-run. Although the fit looks better, it is still classified as not a cluster.
 
+* RUP85: run again restricting the maximum age. This cluster has very large MPs in its entire sequence, and the low mass region is highly populated. This makes the likelihood try to fit the lower portion of the section and neglect the upper (less populated) section, where evolved stars (RG) are located.
+
+* vdBH87: the run was performed again, to find a slightly better fit in the distance modulus.
 
 
 

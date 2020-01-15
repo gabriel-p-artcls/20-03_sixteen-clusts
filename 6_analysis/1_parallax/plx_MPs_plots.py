@@ -8,34 +8,41 @@ import matplotlib.offsetbox as offsetbox
 # from matplotlib.ticker import MultipleLocator
 # from scipy import optimize
 from scipy.stats import anderson_ksamp, combine_pvalues  # gaussian_kde
-from scipy.optimize import differential_evolution as DE
+# from scipy.optimize import differential_evolution as DE
 from scipy.special import exp1
 from emcee3rc2 import ensemble
 
 
 names_dict = {
-    'loden565': ('LODEN565', 13.247, 0.251),
-    'bh85': ('vdBH85', 13.317, 0.12085),
-    'bh73': ('vdBH73', 13.498, 0.26366),
-    'bh92': ('vdBH92', 12.066, 0.092136),
-    'ngc4230': ('NGC4230', 13.167, 0.58768),
-    'rup85': ('RUP85', 13.556, 0.14048),
-    'bh106': ('vdBH106', 13.437, 0.36267),
-    'trumpler13': ('TR13', 13.954, 0.17795),
-    'rup88': ('RUP88', 13.704, 0.52557),
-    'rup87': ('RUP87', 11.636, 0.88644),
-    'ngc4349': ('NGC4349', 11.708, 0.090487),
-    'rup162': ('RUP162', 13.23, 0.10038),
-    'bh91': ('vdBH91', 11.03, 0.17141),
-    'trumpler12': ('TR12', 12.721, 0.08997),
-    'lynga15': ('LYNGA15', 11.741, 0.15512),
-    'bh87': ('vdBH87', 11.437, 0.06779)
+    # 'loden565': ('LODEN565', 13.247, 0.251),
+    # 'bh85': ('vdBH85', 13.317, 0.12085),
+    # 'bh73': ('vdBH73', 13.498, 0.26366),
+    # 'bh92': ('vdBH92', 12.066, 0.092136),
+    # 'ngc4230': ('NGC4230', 13.167, 0.58768),
+    # 'rup85': ('RUP85', 13.405, 0.11791),
+    # 'bh106': ('vdBH106', 13.437, 0.36267),
+    # 'trumpler13': ('TR13', 13.954, 0.17795),
+    # 'rup88': ('RUP88', 13.704, 0.52557),
+    # 'rup87': ('RUP87', 12.961, 0.26),
+    # 'ngc4349': ('NGC4349', 11.459, 0.092),
+    # 'rup162': ('RUP162', 13.23, 0.10038),
+    # 'bh91': ('vdBH91', 11.03, 0.17141),
+    # 'trumpler12': ('TR12', 12.721, 0.08997),
+    # 'lynga15': ('LYNGA15', 11.741, 0.15512),
+    'bh87': ('vdBH87', 11.588, 0.098)
 }
 
+MPmin = 0.
+offset = None
+nwalkers = 10
+nruns = 1000
 
-def main():
+
+def main(MPmin, offset, nwalkers, nruns):
     """
     """
+    print("\n\n{}\n\n".format(MPmin))
+
     for cl, clust_data in names_dict.items():
 
         clust_name, dm_asteca, e_dm = clust_data
@@ -47,12 +54,15 @@ def main():
         # Read matched data.
         plx_data_full = ascii.read('input/' + cl + '_match.dat')
 
-        # Add Lindegren offset to parallax
-        # plx_data_full['Plx'] = plx_data_full['Plx'] + 0.029
-        # Add  Schönrich offset to parallax
-        # plx_data_full['Plx'] = plx_data_full['Plx'] + 0.054
-        # Add Shuangjing offset to parallax
-        # plx_data_full['Plx'] = plx_data_full['Plx'] + 0.075
+        if offset == 'lindegren':
+            # Add Lindegren offset to parallax
+            plx_data_full['Plx'] = plx_data_full['Plx'] + 0.029
+        elif offset == 'schonrich':
+            # Add  Schönrich offset to parallax
+            plx_data_full['Plx'] = plx_data_full['Plx'] + 0.054
+        elif offset == 'shuangjing':
+            # Add Shuangjing offset to parallax
+            plx_data_full['Plx'] = plx_data_full['Plx'] + 0.075
 
         # Separate stars in/out the cluster region.
         msk_in = np.array([
@@ -70,7 +80,8 @@ def main():
         print("Combined p-value: {:.3f}".format(comb_p[1]))
 
         # Use *ONLY* stars used in the fit process in what follows.
-        mp_data = mp_data[mp_data['sel'] == 1]
+        msk = (mp_data['sel'] == 1) & (mp_data['MP'] >= MPmin)
+        mp_data = mp_data[msk]
         # Separate stars in/out the cluster region.
         msk_in = np.array([
             True if _ in mp_data['ID'] else False for _ in
@@ -93,54 +104,33 @@ def main():
 
         # Parallax data.
         print("Preparing {} Plx data".format(clust_name))
-        plx_bay, ph_plx, pl_plx, chains = plxPlot(
+        plx_bay, ph_plx, pl_plx, burn, chains = plxPlot(
             clust_name, plx_data_in['Plx'], plx_data_in['e_Plx'],
-            mp_data['Gmag'], mp_data['MP'], nwalkers=10, nruns=10000)
-
-        # Used to change the decimal places without changing the values, for
-        # the article.
-        # plxes = {
-        #     'LODEN565': (3.015, 3.248, 3.500),
-        #     'vdBH85': (7.798, 8.228, 8.660),
-        #     'vdBH73': (5.041, 5.482, 5.931),
-        #     'vdBH92': (2.499, 2.606, 2.722),
-        #     'NGC4230': (2.593, 2.968, 3.384),
-        #     'RUP85': (5.063, 5.298, 5.539),
-        #     'vdBH106': (5.034, 5.407, 5.804),
-        #     'TR13': (5.100, 5.250, 5.421),
-        #     'RUP88': (5.169, 5.722, 6.211),
-        #     'RUP87': (1.537, 1.676, 1.916),
-        #     'NGC4349': (2.105, 2.115, 2.154),
-        #     'RUP162': (4.788, 4.973, 5.179),
-        #     'vdBH91': (2.987, 3.157, 3.333),
-        #     'TR12': (3.941, 4.084, 4.221),
-        #     'LYNGA15': (3.442, 3.681, 3.898),
-        #     'vdBH87': (2.356, 2.428, 2.495)}
-        # pl_plx, plx_bay, ph_plx = plxes[clust_name]
+            mp_data['MP'], nwalkers=nwalkers, nruns=nruns)
 
         # Make final plot
         fig = plt.figure(figsize=(30, 25))
         gs = gridspec.GridSpec(10, 12)
         print("Plotting")
         finalPLot(
-            fig, gs, clust_name, AD_data_pm, AD_data, mp_data['Gmag'],
+            fig, gs, clust_name, AD_data_pm, AD_data, plx_data_in['Gmag'],
             mp_data['MP'], plx_data_in['Plx'], plx_data_in['e_Plx'],
             plx_bay, ph_plx, pl_plx, plx_out, e_plx_out, dm_asteca, e_dm)
         fig.tight_layout()
-        plt.savefig(
-            'output/plx_' + clust_name + '.png', dpi=300,
-            bbox_inches='tight')
+        nameout = 'output/plx_' + str(MPmin) + '_' + clust_name + '.png'
+        plt.savefig(nameout, dpi=300, bbox_inches='tight')
 
         plt.style.use('seaborn-darkgrid')
         fig = plt.figure(figsize=(30, 25))
         gs = gridspec.GridSpec(4, 1)
         ax = plt.subplot(gs[0])
         ax.minorticks_on()
-        plt.plot(chains.T[0], alpha=.5)
+        plt.plot(burn.T[0], c='grey', alpha=.5)
+        Nb, Nc = burn.T[0].shape[0], chains.T[0].shape[0]
+        plt.plot(range(Nb, Nb + Nc), chains.T[0], alpha=.5)
         fig.tight_layout()
-        plt.savefig(
-            'output/chain_' + clust_name + '.png', dpi=300,
-            bbox_inches='tight')
+        nameout = 'output/chain_' + str(MPmin) + '_' + clust_name + '.png'
+        plt.savefig(nameout, dpi=300, bbox_inches='tight')
 
         plt.clf()
         plt.close("all")
@@ -179,13 +169,14 @@ def ADtest_plx(msk_in, plx_data_full):
             x_fl_kde_max, x_fl_kde_min]
 
 
-def plxPlot(clust_name, plx, e_plx, mmag, mp, nwalkers, nruns):
+def plxPlot(clust_name, plx, e_plx, mp, nwalkers, nruns):
     """
     Parameters for the parallax plot.
     """
 
-    # Turn off the MPs
-    mp = 1.
+    # # Turn off the MPs
+    # mp = 1.
+    print("N stars in Plx analysis: {}".format(len(plx)))
 
     def lnlike(mu, x, B2):
         """
@@ -204,26 +195,29 @@ def plxPlot(clust_name, plx, e_plx, mmag, mp, nwalkers, nruns):
 
         return np.sum(np.log(mp * int_exp))
 
-    def lnprior(w_t, w_p, s_p):
+    def lnprior(w_t):  # , w_p, s_p):
         """
-        Log prior, Gaussian > 0.
+        Prior
         """
         if w_t < 0.:
             return -np.inf
-        return -0.5 * ((w_p - w_t) / s_p)**2
+        # # Log prior, Gaussian > 0.
+        # return -0.5 * ((w_p - w_t) / s_p)**2
+        # Uniform prior
+        return 0.
 
-    def lnprob(w_t, x, B2, w_p, s_p):
-        lp = lnprior(w_t, w_p, s_p)
+    def lnprob(w_t, x, B2):  # , w_p, s_p):
+        lp = lnprior(w_t)  # , w_p, s_p)
         if np.isinf(lp):
             return -np.inf
         return lp + lnlike(w_t, x, B2)
 
-    # Define the 'r_i' values used to evaluate the integral.
-    int_max = 20.
-    N = int(int_max / 0.01)
-    x = np.linspace(.1, int_max, N).reshape(-1, 1)
-    B1 = ((plx - (1. / x)) / e_plx)**2
-    B2 = (np.exp(-.5 * B1) / e_plx)
+    # # Define the 'r_i' values used to evaluate the integral.
+    # int_max = 20.
+    # N = int(int_max / 0.01)
+    # x = np.linspace(.1, int_max, N).reshape(-1, 1)
+    # B1 = ((plx - (1. / x)) / e_plx)**2
+    # B2 = (np.exp(-.5 * B1) / e_plx)
 
     # # Use DE to estimate the ML
     # def DEdist(model):
@@ -233,38 +227,40 @@ def plxPlot(clust_name, plx, e_plx, mmag, mp, nwalkers, nruns):
     # print(result.x)
 
     # Prior parameters.
-    # This is the mean for the Gaussian prior. Set it to 3 Kpc wich is sort
-    # of the middle point in the distance range
-    w_p = np.array([3.]) # result.x
-    # This is the STTDEV of the Gaussian prior. Set it to 50 kpc so it is
-    # basically a uniform prior
-    s_p = 50.
+    # # This is the mean for the Gaussian prior.
+    # w_p = result.x
+    # # This is the STTDEV of the Gaussian prior.
+    # s_p = 1.
+
     # Define the 'r_i' values used to evaluate the integral.
-    int_max = w_p + 5.
+    int_max = 20.  # w_p + 5.
     N = int(int_max / 0.01)
     x = np.linspace(.1, int_max, N).reshape(-1, 1)
     B1 = ((plx - (1. / x)) / e_plx)**2
     B2 = (np.exp(-.5 * B1) / e_plx)
 
-    ndim, nburn = 1, int(nruns / 4.)
+    ndim = 1
     sampler = ensemble.EnsembleSampler(
-        nwalkers, ndim, lnprob, args=(x, B2, w_p, s_p))
+        nwalkers, ndim, lnprob, args=(x, B2))  # , w_p, s_p
     # Initial guesses.
     # pos0 = [w_p + .5 * np.random.normal() for i in range(nwalkers)]
+
+    # Set 'nwalkers' initial positions distributed in the [0, 10] kpc range.
     pos = [np.array([_]) for _ in np.linspace(0., 10., nwalkers).tolist()]
     # sampler.run_mcmc(pos, nruns)
     print(" Iteration ({}), autocorr time".format(nruns))
     for i, _ in enumerate(sampler.sample(pos, iterations=nruns)):
         if i % 100:
             continue
-        print(i, sampler.get_autocorr_time(tol=0)[0])
+        actime = sampler.get_autocorr_time(tol=0)[0]
+        Neff = (nwalkers * i) / actime
+        print(i, actime, Neff)
+        if Neff > 1000:
+            break
 
     # Remove burn-in
+    nburn = int(i / 4.)
     samples = sampler.chain[:, nburn:, :].reshape((-1, ndim))
-
-    # for c in sampler.chain[:, nburn:, :]:
-    #     plt.plot(c)
-    # plt.show()
 
     # Median estimator of samples.
     # 16th, 84th percentiles
@@ -277,7 +273,8 @@ def plxPlot(clust_name, plx, e_plx, mmag, mp, nwalkers, nruns):
     print("Autocorrelation time: {:.2f}".format(
         sampler.get_autocorr_time(tol=0)[0]))
 
-    return plx_bay, ph_plx, pl_plx, sampler.chain[:, nburn:, :]
+    return plx_bay, ph_plx, pl_plx, sampler.chain[:, :nburn, :],\
+        sampler.chain[:, nburn:, :]
 
 
 def finalPLot(
@@ -350,7 +347,7 @@ def finalPLot(
     cbar.ax.tick_params(labelsize=10)
     # cbar.set_label('MP', size=8)
 
-    max_plx, min_plx = np.median(plx) + 2. * np.std(plx),\
+    max_plx, min_plx = np.median(plx) + 3. * np.std(plx),\
         np.median(plx) - 2. * np.std(plx)
     plt.xlim(min_plx, max_plx)
     # ax.set_ylim(ax.get_ylim()[::-1])
@@ -477,4 +474,5 @@ def diag_limits(yaxis, phot_x, phot_y):
 
 
 if __name__ == '__main__':
-    main()
+    # for mpmin in (0.):
+    main(MPmin, offset, nwalkers, nruns)
