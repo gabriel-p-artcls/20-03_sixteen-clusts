@@ -22,14 +22,15 @@ def main():
     z_UB, z_BV = zams['(U-B)o'], zams['(B-V)o']
 
     names_dict = {
-        'ngc4230_match.dat': 'NGC4230', 'rup85_match.dat': 'RUP85',
-        'bh106_match.dat': 'vdBH106', 'trumpler13_match.dat': 'TR13',
-        'rup88_match.dat': 'RUP88', 'rup87_match.dat': 'RUP87',
-        'ngc4349_match.dat': 'NGC4349', 'rup162_match.dat': 'RUP162',
-        'bh91_match.dat': 'vdBH91', 'trumpler12_match.dat': 'TR12',
-        'lynga15_match.dat': 'LYNGA15', 'bh87_match.dat': 'vdBH87',
-        'bh85_match.dat': 'vdBH85', 'loden565_match.dat': 'LODEN565',
-        'bh92_match.dat': 'vdBH92', 'bh73_match.dat': 'vdBH73'}
+        # 'ngc4230_match.dat': 'NGC4230', 'rup85_match.dat': 'RUP85',
+        # 'bh106_match.dat': 'vdBH106', 'trumpler13_match.dat': 'TR13',
+        # 'rup88_match.dat': 'RUP88', 'rup87_match.dat': 'RUP87',
+        # 'rup162_match.dat': 'RUP162',
+        # 'bh91_match.dat': 'vdBH91', 'trumpler12_match.dat': 'TR12',
+        # 'lynga15_match.dat': 'LYNGA15', 'bh87_match.dat': 'vdBH87',
+        # 'bh85_match.dat': 'vdBH85', 'loden565_match.dat': 'LODEN565',
+        # 'bh92_match.dat': 'vdBH92', 'bh73_match.dat': 'vdBH73',
+        'ngc4349_match.dat': 'NGC4349'}
 
     rootdir = '/'.join(
         realpath(join(getcwd(), dirname(__file__))).split('/')[:-1]) +\
@@ -54,7 +55,7 @@ def makePlots(z_UB, z_BV, file, name, x, y, G, BV, UB, VI):
         'bh87': (1089, 1283, 700), 'bh91': (1100, 1300, 500),
         'bh92': (931, 1284, 380), 'bh106': (1100, 1100, 500),
         'loden565': (1400, 1140, 400), 'lynga15': (2520, 1690, 600),
-        'ngc4349': (1915, 2213, 600), 'ngc4230': (970, 970, 400),
+        'ngc4349': (1915, 2213, 900), 'ngc4230': (970, 970, 400),
         'rup85': (1090, 1320, 440), 'rup87': (1020, 1420, 300),
         'rup88': (1250, 1050, 300), 'rup162': (1300, 1500, 600),
         'trumpler12': (1000, 1150, 400), 'trumpler13': (1170, 1280, 500)

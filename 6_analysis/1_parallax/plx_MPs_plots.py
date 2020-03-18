@@ -24,16 +24,16 @@ names_dict = {
     # 'trumpler13': ('TR13', 13.954, 0.17795),
     # 'rup88': ('RUP88', 13.704, 0.52557),
     # 'rup87': ('RUP87', 12.961, 0.26),
-    # 'ngc4349': ('NGC4349', 11.459, 0.092),
+    'ngc4349': ('NGC4349', 11.375, 0.11),
     # 'rup162': ('RUP162', 13.23, 0.10038),
     # 'bh91': ('vdBH91', 11.03, 0.17141),
     # 'trumpler12': ('TR12', 12.721, 0.08997),
     # 'lynga15': ('LYNGA15', 11.741, 0.15512),
-    'bh87': ('vdBH87', 11.588, 0.098)
+    # 'bh87': ('vdBH87', 11.588, 0.098)
 }
 
 MPmin = 0.
-offset = None
+offset = 'shuangjing' # None
 nwalkers = 10
 nruns = 1000
 
@@ -54,6 +54,7 @@ def main(MPmin, offset, nwalkers, nruns):
         # Read matched data.
         plx_data_full = ascii.read('input/' + cl + '_match.dat')
 
+        print("Offset:", offset)
         if offset == 'lindegren':
             # Add Lindegren offset to parallax
             plx_data_full['Plx'] = plx_data_full['Plx'] + 0.029

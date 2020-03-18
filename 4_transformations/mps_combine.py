@@ -98,6 +98,7 @@ def transfPlot(fname, gs=None):
     # Filters on our photometry
     Vmsk, BVmsk, VImsk = Vm < 50., BVm < 50., VIm < 50.
     eVmsk, eBVmsk, eVImsk = eVm < 0.05, eBVm < 0.05, eVIm < 0.05
+    # eVmsk, eBVmsk, eVImsk = eVm < 1, eBVm < 1, eVIm < 1
     msk_ubvi = Vmsk & BVmsk & VImsk & eVmsk & eBVmsk & eVImsk
 
     msk = msk_gaia & msk_ubvi

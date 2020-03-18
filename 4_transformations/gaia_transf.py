@@ -23,13 +23,16 @@ def main():
         'bh87': 'vdBH87'}
 
     # # Print the per-cluster V, B, BV mean differences
-    name = '16clusts_print'
+    # name = '16clusts_print'
+
     # # Plot the combined transformations for the observed clusters
     # name = '16clusts'
+
     # # Plot the combined transformations for Carrasco's Landolt set
     # name = 'carrasco'
+
     # Plot the combined transformations for APASS fields
-    # name = 'APASS'
+    name = 'APASS'
 
     if name == 'carrasco':
         data_dict = loadCarrasco()
@@ -91,7 +94,8 @@ def loadAPASS(names_dict):
     """
     Load APASS data on a section of the 16 clusters
     """
-    path = realpath(join(getcwd(), dirname(__file__), 'APASS'))
+    path = realpath(join(getcwd(), dirname(__file__), 'APASS_GAIA'))
+    path = path.replace('in_repo/', '')
 
     data_dict = {
         'Gm': [], 'BPRPm': [], 'Um': [], 'Bm': [], 'Vm': [], 'Im': [],
@@ -204,11 +208,12 @@ def readData(fname, dataID):
         VI = VR + RI
         U, Imag = UB + B, V - VI
         BPRP = BP - RP
+        Rmag = RI + Imag
 
         # General mask
         msk = (G < 13.) & (eG < 0.01) & (e_BP < 0.01) & (e_RP < 0.01)
-        Gm, Um, Bm, Vm, Im, BPRPm, UBm, BVm, VIm = [
-            _[msk] for _ in (G, U, B, V, Imag, BPRP, UB, BV, VI)]
+        Gm, Um, Bm, Vm, Im, Rm, BPRPm, UBm, BVm, VIm = [
+            _[msk] for _ in (G, U, B, V, Imag, Rmag, BPRP, UB, BV, VI)]
 
         # from scipy.optimize import least_squares
         # def fun(coeffs, yd):
@@ -221,10 +226,28 @@ def readData(fname, dataID):
 
         # poly_order = 4
         # UBI_coeffs = []
-        # for yd in (Um, Bm):
+        # for yd in (Bm,):  # Um, Vm, Rm, Im
         #     res = least_squares(fun, [.1] * poly_order, args=([yd]))
         #     UBI_coeffs.append(np.array(res.x))
-        #     print(np.array(res.x))
+
+        #     # Parameters errors. See:
+        #     # https://stackoverflow.com/a/21844726/1391441
+        #     # https://stackoverflow.com/a/14857441/1391441
+
+        #     # Modified Jacobian
+        #     J = res.jac
+        #     # Reduced covariance matrix
+        #     red_cov = np.linalg.inv(J.T.dot(J))
+        #     # RMS of the residuals
+        #     RMS = (res.fun**2).mean()
+        #     # Covariance Matrix
+        #     cov = red_cov * RMS
+        #     # Standard deviation of the parameters
+        #     p_std = np.sqrt(np.diagonal(cov))
+
+        #     print(res.x)
+        #     print(p_std)
+        #     print(np.sqrt((res.fun**2).mean()))
 
         return [np.array(_) for _ in (
             Gm, BPRPm, Um, Bm, Vm, Im, UBm, BVm, VIm)]
@@ -318,11 +341,11 @@ def makePlots(name, data, transf):
         plt.scatter(BPRPm, Gm - mag, label="N={}".format(len(Gm)), c=Vm)
         plt.xlim(max(-.4, min(BPRPm) - .05), min(2.8, max(BPRPm) + .05))
 
-    # G-X vs BP-RP
-    polyPlot(0, Um, 'U')
-    polyPlot(1, Bm, 'B')
-    polyPlot(2, Vm, 'V')
-    polyPlot(3, Im, 'I')
+    # # G-X vs BP-RP
+    # polyPlot(0, Um, 'U')
+    # polyPlot(1, Bm, 'B')
+    # polyPlot(2, Vm, 'V')
+    # polyPlot(3, Im, 'I')
 
     minmax = .8
 
@@ -341,19 +364,19 @@ def makePlots(name, data, transf):
         delta_M, BPRPm, mag = delta_M[msk], BPRPm[msk], mag[msk]
         plt.axhline(
             np.mean(delta_M), c='red', ls='--', lw=1.5, zorder=1,
-            label=r"$\Delta {}_{{mean}}=${:.4f}$\pm${:.4f}".format(
+            label=r"$\Delta {}_{{mean}}=${:.2f}$\pm${:.2f}".format(
                 mag_name, np.mean(delta_M), np.std(delta_M)))
         plt.axhline(
             y=np.nanmedian(delta_M), ls=':', c='k',
-            label="Median = {:.4f}".format(np.nanmedian(delta_M)))
+            label="Median = {:.2f}".format(np.nanmedian(delta_M)))
         plt.scatter(mag, delta_M, s=7, c=BPRPm)
         plt.legend(fontsize=12)
 
     # Delta plots for magnitudes
-    magDiffs(4, Um, 'U')
-    magDiffs(5, Bm, 'B')
-    magDiffs(6, Vm, 'V')
-    magDiffs(7, Im, 'I')
+    # magDiffs(4, Um, 'U')
+    magDiffs(1, Bm, 'B')
+    magDiffs(0, Vm, 'V')
+    # magDiffs(7, Im, 'I')
     # magDiffs(0, Vm, 'V')
     # magDiffs(1, Bm, 'B')
 
@@ -370,11 +393,11 @@ def makePlots(name, data, transf):
         plt.ylabel(r"${}_{{Gaia}} - {}$".format(col, col), fontsize=12)
         plt.axhline(
             np.mean(delta_col[msk]), c='red', ls='--', lw=1.5, zorder=1,
-            label=r"$\Delta {}_{{mean}}=${:.4f}$\pm${:.4f}".format(
+            label=r"$\Delta {}_{{mean}}=${:.2f}$\pm${:.2f}".format(
                 col, np.mean(delta_col[msk]), np.std(delta_col[msk])))
         plt.axhline(
             y=np.nanmedian(delta_col[msk]), ls=':', c='k',
-            label="Median = {:.4f}".format(np.nanmedian(delta_col[msk])))
+            label="Median = {:.2f}".format(np.nanmedian(delta_col[msk])))
         im = plt.scatter(Vm[msk], delta_col[msk], s=7, c=BPRPm[msk])
         plt.legend(fontsize=12)
 
@@ -386,9 +409,9 @@ def makePlots(name, data, transf):
             cbar.ax.tick_params(labelsize=8)
 
     # Delta plots for colors
-    colDiffs(8, UB, 'UB')
-    colDiffs(9, BV, 'BV')
-    colDiffs(10, VI, 'VI')
+    # colDiffs(8, UB, 'UB')
+    colDiffs(2, BV, 'BV')
+    # colDiffs(10, VI, 'VI')
     # colDiffs(2, BV, 'BV')
 
     fig.tight_layout()
