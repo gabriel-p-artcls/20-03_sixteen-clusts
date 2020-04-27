@@ -14,26 +14,45 @@ from emcee3rc2 import ensemble
 
 
 names_dict = {
-    # 'loden565': ('LODEN565', 13.247, 0.251),
-    # 'bh85': ('vdBH85', 13.317, 0.12085),
-    # 'bh73': ('vdBH73', 13.498, 0.26366),
-    # 'bh92': ('vdBH92', 12.066, 0.092136),
-    # 'ngc4230': ('NGC4230', 13.167, 0.58768),
-    # 'rup85': ('RUP85', 13.405, 0.11791),
-    # 'bh106': ('vdBH106', 13.437, 0.36267),
-    # 'trumpler13': ('TR13', 13.954, 0.17795),
-    # 'rup88': ('RUP88', 13.704, 0.52557),
-    # 'rup87': ('RUP87', 12.961, 0.26),
+    'loden565': ('LODEN565', 13.247, 0.251),
+    'bh85': ('vdBH85', 13.317, 0.12085),
+    'bh73': ('vdBH73', 13.498, 0.26366),
+    'bh92': ('vdBH92', 12.066, 0.092136),
+    'ngc4230': ('NGC4230', 13.167, 0.58768),
+    'rup85': ('RUP85', 13.405, 0.11791),
+    'bh106': ('vdBH106', 13.437, 0.36267),
+    'trumpler13': ('TR13', 13.954, 0.17795),
+    'rup88': ('RUP88', 13.704, 0.52557),
+    'rup87': ('RUP87', 12.961, 0.26),
     'ngc4349': ('NGC4349', 11.375, 0.11),
-    # 'rup162': ('RUP162', 13.23, 0.10038),
-    # 'bh91': ('vdBH91', 11.03, 0.17141),
-    # 'trumpler12': ('TR12', 12.721, 0.08997),
-    # 'lynga15': ('LYNGA15', 11.741, 0.15512),
-    # 'bh87': ('vdBH87', 11.588, 0.098)
+    'rup162': ('RUP162', 13.23, 0.10038),
+    'bh91': ('vdBH91', 11.03, 0.17141),
+    'trumpler12': ('TR12', 12.721, 0.08997),
+    'lynga15': ('LYNGA15', 11.741, 0.15512),
+    'bh87': ('vdBH87', 11.588, 0.098)
+}
+
+plx_dict = {
+    'loden565':   (3.250, 3.500, 3.020),
+    'bh85':       (8.230, 8.660, 7.800),
+    'bh73':       (5.480, 5.930, 5.040),
+    'bh92':       (2.610, 2.720, 2.500),
+    'ngc4230':    (2.970, 3.380, 2.590),
+    'rup85':      (5.390, 5.620, 5.160),
+    'bh106':      (5.410, 5.800, 5.030),
+    'trumpler13': (5.250, 5.420, 5.100),
+    'rup88':      (5.720, 6.210, 5.170),
+    'rup87':      (6.190, 6.970, 5.470),
+    'ngc4349':    (2.040, 2.060, 2.010),
+    'rup162':     (4.970, 5.180, 4.790),
+    'bh91':       (3.160, 3.330, 2.990),
+    'trumpler12': (4.080, 4.220, 3.940),
+    'lynga15':    (3.680, 3.900, 3.440),
+    'bh87':       (2.420, 2.490, 2.350)
 }
 
 MPmin = 0.
-offset = 'shuangjing' # None
+offset = None # 'shuangjing'
 nwalkers = 10
 nruns = 1000
 
@@ -103,11 +122,13 @@ def main(MPmin, offset, nwalkers, nruns):
         plx_data_in.sort('ID')
         mp_data.sort('ID')
 
-        # Parallax data.
-        print("Preparing {} Plx data".format(clust_name))
-        plx_bay, ph_plx, pl_plx, burn, chains = plxPlot(
-            clust_name, plx_data_in['Plx'], plx_data_in['e_Plx'],
-            mp_data['MP'], nwalkers=nwalkers, nruns=nruns)
+        # # Parallax data.
+        # print("Preparing {} Plx data".format(clust_name))
+        # plx_bay, ph_plx, pl_plx, burn, chains = plxPlot(
+        #     clust_name, plx_data_in['Plx'], plx_data_in['e_Plx'],
+        #     mp_data['MP'], nwalkers=nwalkers, nruns=nruns)
+
+        plx_bay, ph_plx, pl_plx = plx_dict[cl]
 
         # Make final plot
         fig = plt.figure(figsize=(30, 25))
@@ -121,17 +142,17 @@ def main(MPmin, offset, nwalkers, nruns):
         nameout = 'output/plx_' + str(MPmin) + '_' + clust_name + '.png'
         plt.savefig(nameout, dpi=300, bbox_inches='tight')
 
-        plt.style.use('seaborn-darkgrid')
-        fig = plt.figure(figsize=(30, 25))
-        gs = gridspec.GridSpec(4, 1)
-        ax = plt.subplot(gs[0])
-        ax.minorticks_on()
-        plt.plot(burn.T[0], c='grey', alpha=.5)
-        Nb, Nc = burn.T[0].shape[0], chains.T[0].shape[0]
-        plt.plot(range(Nb, Nb + Nc), chains.T[0], alpha=.5)
-        fig.tight_layout()
-        nameout = 'output/chain_' + str(MPmin) + '_' + clust_name + '.png'
-        plt.savefig(nameout, dpi=300, bbox_inches='tight')
+        # plt.style.use('seaborn-darkgrid')
+        # fig = plt.figure(figsize=(30, 25))
+        # gs = gridspec.GridSpec(4, 1)
+        # ax = plt.subplot(gs[0])
+        # ax.minorticks_on()
+        # plt.plot(burn.T[0], c='grey', alpha=.5)
+        # Nb, Nc = burn.T[0].shape[0], chains.T[0].shape[0]
+        # plt.plot(range(Nb, Nb + Nc), chains.T[0], alpha=.5)
+        # fig.tight_layout()
+        # nameout = 'output/chain_' + str(MPmin) + '_' + clust_name + '.png'
+        # plt.savefig(nameout, dpi=300, bbox_inches='tight')
 
         plt.clf()
         plt.close("all")
@@ -288,15 +309,15 @@ def finalPLot(
     # x_max_cmd, x_min_cmd, y_min_cmd, y_max_cmd = diag_limits(
     #     'mag', col_plx, mmag_plx)
 
-    plt.style.use('seaborn-darkgrid')
+    # plt.style.use('seaborn-darkgrid')
 
     ax = plt.subplot(gs[0:2, 0:2])
-    ax.set_title("{}".format(reg_name), fontsize=12, x=.1, y=.95)
+    ax.set_title("{}".format(reg_name), fontsize=12, x=.13, y=.94)
     plt.xlabel('Plx [mas]', fontsize=12)
     plt.ylabel('G', fontsize=12)
     # Set minor ticks
     ax.minorticks_on()
-    ax.axvspan(-100., 0., alpha=0.25, color='grey', zorder=1)
+    # ax.axvspan(-100., 0., alpha=0.25, color='grey', zorder=1)
 
     # Weighted average and its error.
     # Source: https://physics.stackexchange.com/a/329412/8514
@@ -314,9 +335,12 @@ def finalPLot(
         ecolor='grey', label=None)
 
     # Bayesian
-    d_pc = Distance((1000. * round(plx_bay, 2)), unit='pc')
-    dl_pc = Distance((1000. * round(pl_plx, 2)), unit='pc')
-    dh_pc = Distance((1000. * round(ph_plx, 2)), unit='pc')
+    # d_pc = Distance((1000. * round(plx_bay, 2)), unit='pc')
+    # dl_pc = Distance((1000. * round(pl_plx, 2)), unit='pc')
+    # dh_pc = Distance((1000. * round(ph_plx, 2)), unit='pc')
+    d_pc = Distance(1000. * plx_bay, unit='pc')
+    dl_pc = Distance(1000. * pl_plx, unit='pc')
+    dh_pc = Distance(1000. * ph_plx, unit='pc')
     plt.axvline(
         x=1. / plx_bay, linestyle='--', color='b', lw=1.2, zorder=5,
         label=r"$Plx_{{Bayes}}$")
@@ -342,14 +366,14 @@ def finalPLot(
         x=np.median(plx_gr_zero), linestyle='--', color='k', lw=.85, zorder=5,
         label=r"$Plx_{{>0|med}}$")
 
-    ax.legend(fontsize=12, loc=0)
+    ax.legend(fontsize=12, loc=4)
 
     cbar = plt.colorbar(pad=.01, fraction=.02, aspect=50)
     cbar.ax.tick_params(labelsize=10)
     # cbar.set_label('MP', size=8)
 
-    max_plx, min_plx = np.median(plx) + 3. * np.std(plx),\
-        np.median(plx) - 2. * np.std(plx)
+    min_plx, max_plx = np.median(plx) - 2. * np.std(plx),\
+        np.median(plx) + 2.5 * np.std(plx)
     plt.xlim(min_plx, max_plx)
     # ax.set_ylim(ax.get_ylim()[::-1])
     plt.gca().invert_yaxis()
@@ -359,7 +383,7 @@ def finalPLot(
         x_fl_kde_max, x_fl_kde_min = AD_data
     ax = plt.subplot(gs[0:2, 2:4])
     ax.minorticks_on()
-    ax.axvspan(-100., 0., alpha=0.25, color='grey', zorder=1)
+    # ax.axvspan(-100., 0., alpha=0.25, color='grey', zorder=1)
     plt.xlabel('Plx [mas]', fontsize=12)
     plt.plot(x_fl_kde, y_fl_kde / max(y_fl_kde), color='k', lw=1., ls='--',
              zorder=4, label="Field region")

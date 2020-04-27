@@ -25,14 +25,14 @@ def main():
     # # Print the per-cluster V, B, BV mean differences
     # name = '16clusts_print'
 
-    # # Plot the combined transformations for the observed clusters
-    # name = '16clusts'
+    # Plot the combined transformations for the observed clusters
+    name = '16clusts'
 
     # # Plot the combined transformations for Carrasco's Landolt set
     # name = 'carrasco'
 
-    # Plot the combined transformations for APASS fields
-    name = 'APASS'
+    # # Plot the combined transformations for APASS fields
+    # name = 'APASS'
 
     if name == 'carrasco':
         data_dict = loadCarrasco()
@@ -328,7 +328,7 @@ def makePlots(name, data, transf):
         data['Um'], data['Bm'], data['Vm'], data['Im'], data['UBm'],\
         data['BVm'], data['VIm']
 
-    plt.style.use('seaborn-darkgrid')
+    # plt.style.use('seaborn-darkgrid')
     plt.set_cmap('viridis')
     fig = plt.figure(figsize=(25, 25))
     gs = gridspec.GridSpec(4, 4)

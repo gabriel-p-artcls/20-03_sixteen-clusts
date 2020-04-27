@@ -22,14 +22,14 @@ def main():
     z_UB, z_BV = zams['(U-B)o'], zams['(B-V)o']
 
     names_dict = {
-        # 'ngc4230_match.dat': 'NGC4230', 'rup85_match.dat': 'RUP85',
-        # 'bh106_match.dat': 'vdBH106', 'trumpler13_match.dat': 'TR13',
-        # 'rup88_match.dat': 'RUP88', 'rup87_match.dat': 'RUP87',
-        # 'rup162_match.dat': 'RUP162',
-        # 'bh91_match.dat': 'vdBH91', 'trumpler12_match.dat': 'TR12',
-        # 'lynga15_match.dat': 'LYNGA15', 'bh87_match.dat': 'vdBH87',
-        # 'bh85_match.dat': 'vdBH85', 'loden565_match.dat': 'LODEN565',
-        # 'bh92_match.dat': 'vdBH92', 'bh73_match.dat': 'vdBH73',
+        'ngc4230_match.dat': 'NGC4230', 'rup85_match.dat': 'RUP85',
+        'bh106_match.dat': 'vdBH106', 'trumpler13_match.dat': 'TR13',
+        'rup88_match.dat': 'RUP88', 'rup87_match.dat': 'RUP87',
+        'rup162_match.dat': 'RUP162',
+        'bh91_match.dat': 'vdBH91', 'trumpler12_match.dat': 'TR12',
+        'lynga15_match.dat': 'LYNGA15', 'bh87_match.dat': 'vdBH87',
+        'bh85_match.dat': 'vdBH85', 'loden565_match.dat': 'LODEN565',
+        'bh92_match.dat': 'vdBH92', 'bh73_match.dat': 'vdBH73',
         'ngc4349_match.dat': 'NGC4349'}
 
     rootdir = '/'.join(
@@ -93,8 +93,8 @@ def makePlots(z_UB, z_BV, file, name, x, y, G, BV, UB, VI):
     # Only draw units on axis (ie: 1, 2, 3)
     ax.xaxis.set_major_locator(MultipleLocator(1.0))
     # Set grid
-    ax.grid(b=True, which='major', color='gray', linestyle='--', lw=1,
-            zorder=1)
+    # ax.grid(b=True, which='major', color='gray', linestyle='--', lw=1,
+    #         zorder=1)
     plt.legend(loc='upper right')
 
     # ax = plt.subplot(gs[1])
@@ -130,8 +130,8 @@ def makePlots(z_UB, z_BV, file, name, x, y, G, BV, UB, VI):
     # Only draw units on axis (ie: 1, 2, 3)
     ax.xaxis.set_major_locator(MultipleLocator(1.0))
     # Set grid
-    ax.grid(b=True, which='major', color='gray', linestyle='--', lw=1,
-            zorder=1)
+    # ax.grid(b=True, which='major', color='gray', linestyle='--', lw=1,
+    #         zorder=1)
     plt.legend(loc='upper right')
     # Add text box.
     text = '{}'.format(name)
@@ -167,8 +167,8 @@ def makePlots(z_UB, z_BV, file, name, x, y, G, BV, UB, VI):
     # Only draw units on axis (ie: 1, 2, 3)
     ax.xaxis.set_major_locator(MultipleLocator(1.0))
     # Set grid
-    ax.grid(b=True, which='major', color='gray', linestyle='--', lw=1,
-            zorder=1)
+    # ax.grid(b=True, which='major', color='gray', linestyle='--', lw=1,
+    #         zorder=1)
     plt.legend(loc='upper right')
 
     fig.tight_layout()

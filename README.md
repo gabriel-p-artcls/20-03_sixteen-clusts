@@ -1,12 +1,6 @@
 
 # Sixteen clusters analysis
 
-Contents of folders outside of repo:
-
-* `1_old_analysis`: contains the results of the 2017-2019 original analysis.
-  * `original_phot`: originally received photometry for the remaining 15 clusters
-* `2_bh73_phot`: photometric analysis for this cluster.
-
 Contents of folders inside of repo:
 
 * `0_obs_clusters`: images and code to generate the three figures of the

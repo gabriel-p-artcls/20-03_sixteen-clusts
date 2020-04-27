@@ -177,7 +177,7 @@ def main(
     plt.errorbar(
         y, deltas, xerr=np.array([eyl, eyh]),
         fmt='.', elinewidth=.85, ms=4, ecolor='b', label=None)
-    plt.grid(ls=':', lw=.5, c='grey')
+    # plt.grid(ls=':', lw=.5, c='grey')
     # plt.xlabel(r'$Plx_{ASteCA}$ [mas]', fontsize=12)
     plt.xlabel(r'$Plx_{Bayes}$ [mas]', fontsize=12)
     plt.ylabel(r'$\Delta\;Plx_{[ASteCA-Bayes]}$ [mas]', fontsize=12)
@@ -237,7 +237,7 @@ def dpcPlot(gs, gsi, xymin, xymax, txt, parsec_data, labels, j):
         r"{}, $\Delta_{{mean}}=${:.0f} [pc]".format(
             txt, np.nanmean(deltas)), fontsize=10)  # , x=.1, y=.95)
     plt.plot((xymin, xymax), (xymin, xymax), ls='--', c='r', lw=.5)
-    plt.grid(ls=':', lw=.5, c='grey')
+    # plt.grid(ls=':', lw=.5, c='grey')
     plt.xlabel(r'$d_{ASteCA}$ [pc]', fontsize=12)
     if labels[0]:
         plt.ylabel(r'$d_{Bayes}$ [pc]', fontsize=12)
