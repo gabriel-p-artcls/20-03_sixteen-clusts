@@ -1,0 +1,262 @@
+\begin{thebibliography}{55}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{{Aller} {et~al.}(1982){Aller}, {Appenzeller}, {Baschek}, {Duerbeck},
+  {Herczeg}, {Lamla}, {Meyer-Hofmeister}, {Schmidt-Kaler}, {Scholz},
+  {Seggewiss}, {Seitter}, \& {Weidemann}}]{Aller1982}
+{Aller}, L.~H., {Appenzeller}, I., {Baschek}, B., {et~al.}, eds. 1982,
+  {Landolt-B{\"o}rnstein: Numerical Data and Functional Relationships in
+  Science and Technology - New Series '' Gruppe/Group 6 Astronomy and
+  Astrophysics '' Volume 2 Schaifers/Voigt: Astronomy and Astrophysics /
+  Astronomie und Astrophysik '' Stars and Star Clusters / Sterne und
+  Sternhaufen}
+
+\bibitem[{{Astropy Collaboration} {et~al.}(2013){Astropy Collaboration},
+  {Robitaille}, {Tollerud}, {Greenfield}, {Droettboom}, {Bray}, {Aldcroft},
+  {Davis}, {Ginsburg}, {Price-Whelan}, {Kerzendorf}, {Conley}, {Crighton},
+  {Barbary}, {Muna}, {Ferguson}, {Grollier}, {Parikh}, {Nair}, {Unther},
+  {Deil}, {Woillez}, {Conseil}, {Kramer}, {Turner}, {Singer}, {Fox}, {Weaver},
+  {Zabalza}, {Edwards}, {Azalee Bostroem}, {Burke}, {Casey}, {Crawford},
+  {Dencheva}, {Ely}, {Jenness}, {Labrie}, {Lim}, {Pierfederici}, {Pontzen},
+  {Ptak}, {Refsdal}, {Servillat}, \& {Streicher}}]{Astropy_2013}
+{Astropy Collaboration}, {Robitaille}, T.~P., {Tollerud}, E.~J., {et~al.} 2013,
+  \aap, 558, A33
+
+\bibitem[{{Avedisova}(2002)}]{Avedisova_2002}
+{Avedisova}, V.~S. 2002, Astronomy Reports, 46, 193
+
+\bibitem[{{Bailer-Jones} {et~al.}(2018){Bailer-Jones}, {Rybizki}, {Fouesneau},
+  {Mantelet}, \& {Andrae}}]{BailerJones_2018}
+{Bailer-Jones}, C.~A.~L., {Rybizki}, J., {Fouesneau}, M., {Mantelet}, G., \&
+  {Andrae}, R. 2018, \aj, 156, 58
+
+\bibitem[{{Boch} \& {Fernique}(2014)}]{Boch2014}
+{Boch}, T. \& {Fernique}, P. 2014, in Astronomical Society of the Pacific
+  Conference Series, Vol. 485, Astronomical Data Analysis Software and Systems
+  XXIII, ed. N.~{Manset} \& P.~{Forshay}, 277
+
+\bibitem[{{Bonnarel} {et~al.}(2000){Bonnarel}, {Fernique}, {Bienaym{\'e}},
+  {Egret}, {Genova}, {Louys}, {Ochsenbein}, {Wenger}, \&
+  {Bartlett}}]{Bonnarel2000}
+{Bonnarel}, F., {Fernique}, P., {Bienaym{\'e}}, O., {et~al.} 2000, AAPS, 143,
+  33
+
+\bibitem[{{Bossini} {et~al.}(2019){Bossini}, {Vallenari}, {Bragaglia},
+  {Cantat-Gaudin}, {Sordo}, {Balaguer-N{\'u}{\~n}ez}, {Jordi}, {Moitinho},
+  {Soubiran}, {Casamiquela}, {Carrera}, \& {Heiter}}]{Bossini_2019}
+{Bossini}, D., {Vallenari}, A., {Bragaglia}, A., {et~al.} 2019, \aap, 623, A108
+
+\bibitem[{{Bressan} {et~al.}(2012){Bressan}, {Marigo}, {Girardi}, {Salasnich},
+  {Dal Cero}, {Rubele}, \& {Nanni}}]{Bressan_2012}
+{Bressan}, A., {Marigo}, P., {Girardi}, L., {et~al.} 2012, \mnras, 427, 127
+
+\bibitem[{{Cantat-Gaudin} {et~al.}(2018){Cantat-Gaudin}, {Jordi}, {Vallenari},
+  {Bragaglia}, {Balaguer-N{\'u}{\~n}ez}, {Soubiran}, {Bossini}, {Moitinho},
+  {Castro-Ginard}, {Krone-Martins}, {Casamiquela}, {Sordo}, \&
+  {Carrera}}]{2018A&A...618A..93C}
+{Cantat-Gaudin}, T., {Jordi}, C., {Vallenari}, A., {et~al.} 2018, A\&A, 618,
+  A93
+
+\bibitem[{{Cardelli} {et~al.}(1989){Cardelli}, {Clayton}, \&
+  {Mathis}}]{Cardelli_1989}
+{Cardelli}, J.~A., {Clayton}, G.~C., \& {Mathis}, J.~S. 1989, \apj, 345, 245
+
+\bibitem[{{Carraro} {et~al.}(2010){Carraro}, {Costa}, \&
+  {Ahumada}}]{Carraro_2010}
+{Carraro}, G., {Costa}, E., \& {Ahumada}, J.~A. 2010, \aj, 140, 954
+
+\bibitem[{{Carraro} {et~al.}(2005){Carraro}, {V{\'a}zquez}, {Moitinho}, \&
+  {Baume}}]{Carraro_2005}
+{Carraro}, G., {V{\'a}zquez}, R.~A., {Moitinho}, A., \& {Baume}, G. 2005,
+  \apjl, 630, L153
+
+\bibitem[{{Cersosimo} {et~al.}(2009){Cersosimo}, {Mader}, {Figueroa},
+  {V{\'e}lez}, {Soto}, \& {Azc{\'a}rate}}]{Cersosimo_2009}
+{Cersosimo}, J.~C., {Mader}, S., {Figueroa}, N.~S., {et~al.} 2009, \apj, 699,
+  469
+
+\bibitem[{Charbonneau(1995)}]{Charbonneau_1995}
+Charbonneau, P. 1995, The Astrophysical Journal Supplement Series, 101, 309
+
+\bibitem[{{Dias} {et~al.}(2002){Dias}, {Alessi}, {Moitinho}, \&
+  {L{\'e}pine}}]{Dias_2002}
+{Dias}, W.~S., {Alessi}, B.~S., {Moitinho}, A., \& {L{\'e}pine}, J.~R.~D. 2002,
+  \aap, 389, 871
+
+\bibitem[{Dolphin(2002)}]{Dolphin_2002}
+Dolphin, A.~E. 2002, Monthly Notices of the Royal Astronomical Society, 332, 91
+
+\bibitem[{Efron \& Tibshirani(1986)}]{efron1986}
+Efron, B. \& Tibshirani, R. 1986, Statist. Sci., 1, 54
+
+\bibitem[{Foreman-Mackey(2016)}]{corner}
+Foreman-Mackey, D. 2016, The Journal of Open Source Software, 1, 24
+
+\bibitem[{{Foreman-Mackey} {et~al.}(2013){Foreman-Mackey}, {Hogg}, {Lang}, \&
+  {Goodman}}]{emcee}
+{Foreman-Mackey}, D., {Hogg}, D.~W., {Lang}, D., \& {Goodman}, J. 2013, PASP,
+  125, 306
+
+\bibitem[{{Gaia Collaboration} {et~al.}(2018){Gaia Collaboration}, {Brown},
+  {Vallenari}, {Prusti}, {de Bruijne}, {Babusiaux}, \&
+  {Bailer-Jones}}]{GaiaDR2_2018}
+{Gaia Collaboration}, {Brown}, A.~G.~A., {Vallenari}, A., {et~al.} 2018, ArXiv
+  e-prints [\eprint[arXiv]{1804.09365}]
+
+\bibitem[{Hunter {et~al.}(2007)}]{hunter_2007}
+Hunter, J.~D. {et~al.} 2007, Computing in science and engineering, 9, 90
+
+\bibitem[{Janes \& Adler(1982)}]{Janes_1982}
+Janes, K. \& Adler, D. 1982, The Astrophysical Journal Supplement Series, 49,
+  425
+
+\bibitem[{Jones {et~al.}(2001)Jones, Oliphant, Peterson, {et~al.}}]{Jones_2001}
+Jones, E., Oliphant, T., Peterson, P., {et~al.} 2001, {SciPy}: Open source
+  scientific tools for {Python}, [Online; accessed 2016-06-21]
+
+\bibitem[{{Kharchenko} {et~al.}(2005){Kharchenko}, {Piskunov}, {R{\"o}ser},
+  {Schilbach}, \& {Scholz}}]{Kharchenko_2005}
+{Kharchenko}, N.~V., {Piskunov}, A.~E., {R{\"o}ser}, S., {Schilbach}, E., \&
+  {Scholz}, R.-D. 2005, A\&A, 438, 1163
+
+\bibitem[{{King}(1962)}]{King_1962}
+{King}, I. 1962, \aj, 67, 471
+
+\bibitem[{{Kroupa}(2002)}]{Kroupa_2002}
+{Kroupa}, P. 2002, Science, 295, 82
+
+\bibitem[{{Landolt}(1992)}]{1992AJ....104..340L}
+{Landolt}, A.~U. 1992, AJ, 104, 340
+
+\bibitem[{{Lindegren} {et~al.}(2018){Lindegren}, {Hern{\'a}ndez}, {Bombrun},
+  {Klioner}, {Bastian}, {Ramos-Lerate}, {de Torres}, {Steidelm{\"u}ller},
+  {Stephenson}, {Hobbs}, {Lammers}, {Biermann}, {Geyer}, {Hilger}, {Michalik},
+  {Stampa}, {McMillan}, {Casta{\ ~n}eda}, {Clotet}, {Comoretto}, {Davidson},
+  {Fabricius}, {Gracia}, {Hambly}, {Hutton}, {Mora}, {Portell}, {van Leeuwen},
+  {Abbas}, {Abreu}, {Altmann}, {Andrei}, {Anglada}, {Balaguer-N{\'u}{\ ~n}ez},
+  {Barache}, {Becciani}, {Bertone}, {Bianchi}, {Bouquillon}, {Bourda},
+  {Br{\"u}semeister}, {Bucciarelli}, {Busonero}, {Buzzi}, {Cancelliere},
+  {Carlucci}, {Charlot}, {Cheek}, {Crosta}, {Crowley}, {de Bruijne}, {de
+  Felice}, {Drimmel}, {Esquej}, {Fienga}, {Fraile}, {Gai}, 49~{Garralda},
+  {Gonz{\'a}lez-Vidal}, {Guerra}, {Hauser}, {Hofmann}, {Holl}, {Jordan},
+  {Lattanzi}, {Lenhardt}, {Liao}, {Licata}, {Lister}, {L{\"o}ffler},
+  {Marchant}, {Martin- Fleitas}, {Messineo}, {Mignard}, {Morbidelli}, {Poggio},
+  {Riva}, {Rowell}, {Salguero}, {Sarasso}, {Sciacca}, {Siddiqui}, {Smart},
+  {Spagna}, {Steele}, {Taris}, {Torra}, {van Elteren}, {van Reeven}, \&
+  {Vecchiato}}]{Lindegren_2018}
+{Lindegren}, L., {Hern{\'a}ndez}, J., {Bombrun}, A., {et~al.} 2018, A\&A, 616,
+  A2
+
+\bibitem[{{Lohmann}(1961)}]{Lohmann_1961}
+{Lohmann}, W. 1961, Astronomische Nachrichten, 286, 105
+
+\bibitem[{{Luri} {et~al.}(2018){Luri}, {Brown}, {Sarro}, {Arenou},
+  {Bailer-Jones}, {Castro-Ginard}, {de Bruijne}, {Prusti}, {Babusiaux}, \&
+  {Delgado}}]{Luri_2018}
+{Luri}, X., {Brown}, A.~G.~A., {Sarro}, L.~M., {et~al.} 2018, ArXiv e-prints
+  [\eprint[arXiv]{1804.09376}]
+
+\bibitem[{{Magrini} {et~al.}(2009){Magrini}, {Stanghellini}, {Corbelli},
+  {Galli}, \& {Villaver}}]{2009yCat..35120063M}
+{Magrini}, L., {Stanghellini}, L., {Corbelli}, E., {Galli}, D., \& {Villaver},
+  E. 2009, VizieR Online Data Catalog, J/A+A/512/A63
+
+\bibitem[{{Moitinho}(2010)}]{Moitinho_2010}
+{Moitinho}, A. 2010, in IAU Symposium, Vol. 266, Star Clusters: Basic Galactic
+  Building Blocks Throughout Time and Space, ed. R.~{de Grijs} \& J.~R.~D.
+  {L{\'e}pine}, 106--116
+
+\bibitem[{{Moitinho} {et~al.}(2006){Moitinho}, {V{\'a}zquez}, {Carraro},
+  {Baume}, {Giorgi}, \& {Lyra}}]{Moitinho_2006}
+{Moitinho}, A., {V{\'a}zquez}, R.~A., {Carraro}, G., {et~al.} 2006, \mnras,
+  368, L77
+
+\bibitem[{{Monteiro} \& {Dias}(2019)}]{Monteiro_2019}
+{Monteiro}, H. \& {Dias}, W.~S. 2019, \mnras, 487, 2385
+
+\bibitem[{{Ochsenbein} {et~al.}(2000){Ochsenbein}, {Bauer}, \&
+  {Marcout}}]{Ochsenbein_2000}
+{Ochsenbein}, F., {Bauer}, P., \& {Marcout}, J. 2000, \aaps, 143, 23
+
+\bibitem[{{O'Donnell}(1994)}]{Odonnell_1994}
+{O'Donnell}, J.~E. 1994, \apj, 422, 158
+
+\bibitem[{{Perren} {et~al.}(2017){Perren}, {Piatti}, \&
+  {V{\'a}zquez}}]{Perren_2017}
+{Perren}, G.~I., {Piatti}, A.~E., \& {V{\'a}zquez}, R.~A. 2017, A\&A, 602, A89
+
+\bibitem[{Perren {et~al.}(2015)Perren, V{\'{a}}zquez, \& Piatti}]{Perren_2015}
+Perren, G.~I., V{\'{a}}zquez, R.~A., \& Piatti, A.~E. 2015, A\&A, 576, A6
+
+\bibitem[{{Ruprecht} {et~al.}(1996){Ruprecht}, {Balazs}, \&
+  {White}}]{Ruprecht_1996}
+{Ruprecht}, J., {Balazs}, B., \& {White}, R.~E. 1996, VizieR Online Data
+  Catalog, VII/101A
+
+\bibitem[{{Schlafly} \& {Finkbeiner}(2011)}]{Schlafly_2011}
+{Schlafly}, E.~F. \& {Finkbeiner}, D.~P. 2011, ApJ, 737, 103
+
+\bibitem[{{Sch{\"o}nrich} {et~al.}(2019){Sch{\"o}nrich}, {McMillan}, \&
+  {Eyer}}]{Schonrich2019}
+{Sch{\"o}nrich}, R., {McMillan}, P., \& {Eyer}, L. 2019, \mnras, 487, 3568
+
+\bibitem[{{Sollima} {et~al.}(2010){Sollima}, {Carballo-Bello}, {Beccari},
+  {Ferraro}, {Pecci}, \& {Lanzoni}}]{Sollima_2010}
+{Sollima}, A., {Carballo-Bello}, J.~A., {Beccari}, G., {et~al.} 2010, MNRAS,
+  401, 577
+
+\bibitem[{{Soubiran} {et~al.}(2018){Soubiran}, {Cantat-Gaudin},
+  {Romero-G{\'o}mez}, {Casamiquela}, {Jordi}, {Vallenari}, {Antoja},
+  {Balaguer-N{\'u}{\~n}ez}, {Bossini}, {Bragaglia}, {Carrera}, {Castro-Ginard},
+  {Figueras}, {Heiter}, {Katz}, {Krone-Martins}, {Le Campion}, {Moitinho}, \&
+  {Sordo}}]{Soubiran_2018}
+{Soubiran}, C., {Cantat-Gaudin}, T., {Romero-G{\'o}mez}, M., {et~al.} 2018,
+  \aap, 619, A155
+
+\bibitem[{{Sp\"ath}(2004)}]{Spath2004}
+{Sp\"ath}, H. 2004, Mathematical Communications, 9, 27
+
+\bibitem[{{Stetson}(1987)}]{Stetson_1987}
+{Stetson}, P.~B. 1987, \pasp, 99, 191
+
+\bibitem[{{Stetson} {et~al.}(1990){Stetson}, {Davis}, \&
+  {Crabtree}}]{Stetson_1990}
+{Stetson}, P.~B., {Davis}, L.~E., \& {Crabtree}, D.~R. 1990, in Astronomical
+  Society of the Pacific Conference Series, Vol.~8, CCDs in astronomy, ed.
+  G.~H. {Jacoby}, 289--304
+
+\bibitem[{{Tadross}(2011)}]{Tadross_2011}
+{Tadross}, A.~L. 2011, Journal of Korean Astronomical Society, 44, 1
+
+\bibitem[{{Trumpler}(1930)}]{Trumpler_1930}
+{Trumpler}, R.~J. 1930, Lick Observatory Bulletin, 420, 154
+
+\bibitem[{{Vall{\'e}e}(2005)}]{valle_2005}
+{Vall{\'e}e}, J.~P. 2005, \aj, 130, 569
+
+\bibitem[{{van den Bergh} \& {Hagen}(1975)}]{vdBH1975}
+{van den Bergh}, S. \& {Hagen}, G.~L. 1975, \aj, 80, 11
+
+\bibitem[{Van Der~Walt {et~al.}(2011)Van Der~Walt, Colbert, \&
+  Varoquaux}]{vanDerWalt_2011}
+Van Der~Walt, S., Colbert, S.~C., \& Varoquaux, G. 2011, Computing in Science
+  \& Engineering, 13, 22
+
+\bibitem[{{van Rossum}(1995)}]{vanRossum_1995}
+{van Rossum}, G. 1995, {Python} tutorial, Report CS-R9526, pub-CWI, pub-CWI:adr
+
+\bibitem[{{V{\'a}zquez} {et~al.}(2008){V{\'a}zquez}, {May}, {Carraro},
+  {Bronfman}, {Moitinho}, \& {Baume}}]{Vazquez2008}
+{V{\'a}zquez}, R.~A., {May}, J., {Carraro}, G., {et~al.} 2008, ApJ, 672, 930
+
+\bibitem[{{Xu} {et~al.}(2019){Xu}, {Zhang}, {Reid}, {Zheng}, \&
+  {Wang}}]{Xu_2019}
+{Xu}, S., {Zhang}, B., {Reid}, M.~J., {Zheng}, X., \& {Wang}, G. 2019, arXiv
+  e-prints, arXiv:1903.04105
+
+\bibitem[{{Yen} {et~al.}(2018){Yen}, {Reffert}, {Schilbach}, {R{\"o}ser},
+  {Kharchenko}, \& {Piskunov}}]{Yen_2018}
+{Yen}, S.~X., {Reffert}, S., {Schilbach}, E., {et~al.} 2018, ArXiv e-prints
+  [\eprint[arXiv]{1802.04234}]
+
+\end{thebibliography}

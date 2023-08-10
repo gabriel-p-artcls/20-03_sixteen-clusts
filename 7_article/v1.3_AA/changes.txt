@@ -1,0 +1,9 @@
+
+The following changes were made to the (previous) version corrected by the language editor
+
+1. Edited the Appendix as requested
+2. Removed the remaining \textbf{} commands from the language editing
+3. As stated in the comments to the language editor, I made the following
+addition:
+* To analyze the large number of objects in a systematic... -->
+  To analyze the large number of objects studied in this article in a systematic...

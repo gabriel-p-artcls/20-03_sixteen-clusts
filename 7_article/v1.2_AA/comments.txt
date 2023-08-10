@@ -1,0 +1,114 @@
+
+Changes are shown with boldface in the PDF. Comments on some of the changes are listed below.
+
+The photometric data has already been uploaded to Vizier (CDS data submission, aa 37141). All figures were updated following the requirements outlined by the editor.
+
+
+* p 3, paragraph 2:
+automated stellar cluster analysis -> Automated Stellar Cluster Analysis
+> This is the name of the package
+
+* p 3, paragraph 3:
+sturctured -> structured
+
+* p 4, paragraph 1:
+is essential -> it is essential
+
+* p 5, paragraph 4:
+Notwithstanding, sometimes we could not help to lose inadvertently lost very
+bright stars -> Notwithstanding, very bright stars are sometimes lost.
+> This does not happen by accident or without our knowledge. We know it
+happens,it just can't be avoided.
+
+* p7, paragraph 1:
+ion the code site -> on the code site
+
+* p8, paragraph 2:
+foreach -> for each
+
+* p9, paragraph 2:
+> The Vizier footnote was moved to the title of the article as requested.
+
+* p9, paragraph 3:
+To analyze the large number of objects
+> What does "the" here refer to? Shouldn't it be: "To analyze the large number
+of objects studied in this article"?
+
+* p 12, paragraph 2:
+removes the field stars that most probably contaminate this region ->
+removes the most probable field stars that contaminate this region
+> The proposed change affects the meaning of the sentence: stars have
+an assigned membership probability hence the "most probable" field stars are
+the ones that are removed.
+
+* p12:
+Note 1: please use the Greek letter here and throughout
+> Done
+
+* p14: Note 2: I have trouble imagining what a "robust cluster" would be - do
+you mean "clearly defined"? please rephrase
+> Removed "robust", it is not really needed.
+
+* p15:
+Note 3: please introduce this at first mention and then use it consistently
+throughout, except for the beginnings of sentences, where there should be no
+abbreviation or acronym. You spell out CCD again in the caption of Fig. 6, too
+> Done
+
+* p16, paragraph 2:
+ergion -> region
+
+
+* p16:
+Note 4: please provide the proper reference here and below
+> Done
+
+* p17, paragraph 4:
+The CCD highlights the reddened but compact sequence of blue stars better that
+is placed immediately below -> The CCD highlights the reddened but compact
+sequence of blue stars placed immediately below
+> I do not understand the intended meaning of the "better that is" addition. I
+have removed it.
+
+* p19, paragraph 5:
+was not able to define an overdensity -> to detect an
+
+* p22, paragraph 2:
+therefore we considered to the individual distance values -> removed the "to"
+
+* p24:
+Note 5: please provide a short descriptive sentence for this table
+> Done
+
+* p24, paragraph 2:
+Note  6: follows? accomodates?
+> Changed to "follows"
+
+* p26:
+Note 7: if you intend to use this abbreviation, please introduce it at first
+occurrence and then use it consistently throughout
+> Done
+
+* p29, paragraph 4:
+The noisy RDP the limits of the overdensity can still be well established
+> This sentence makes no sense as is. Added back "Notwithstanding"
+
+* p30, paragraph 4:
+explained by the background density: at the peak of the RDP, this less than
+twice as high
+> Added "is"
+
+* p32, paragraph 5:
+stars are left to composing -> stars are left composing
+> Removed the added "to"
+
+* p36:
+Note 8: please introduce this - if it is to be short for "member probability", please introduce at first occurrence and then use throughout for consistency
+> Added to the caption of Fig 6
+
+* p37, paragraph 1:
+picture shownin the -> shown in
+
+* p38:
+Note please remove the tilde
+> Removed

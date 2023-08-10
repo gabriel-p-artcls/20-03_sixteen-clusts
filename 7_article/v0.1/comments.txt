@@ -1,0 +1,164 @@
+
+# Abstract
+
+* Agregué 'masa' como parámetro ajustado
+* "teen" --> "ten"
+* "Indeed since most of GAIA our real clusters", no se entiende que se quiere
+decir
+* "combined with"  -> "through"
+* "distance higher" --> "distance larger"
+
+
+# Introduction
+
+* agregue al final mencion al capítulo 5 ("Cluster by cluster...") que no estaba
+mencionado en el outline del paper al final de la sección.
+* saque la referencia a la abreviacion "BH" en la 'Note' ya que no veo que se
+use nunca, siempre ponemos "vdBH"
+
+
+# The cluster sample
+
+* "Cen" --> "Centaurus"?
+
+
+# Photometric observations
+
+* En el párrafo que empieza "The first series..." cambié "series" por
+"runs" porque "series" se usa la primera y segunda serie de observaciones
+mientras que "runs" se usa dentro de este párrafo para distinguir las dos
+noches de observación.
+* añadí referencia a la Tabla 2 (observaciones en YALO)  que no estaba
+# la Tabla 3 debería tener en lo posible el mismo formato de la Tabla 2. Esta
+última está separada en cúmulos y confunde un poco que la Tabla 3 no lo
+esté.
+
+## Photometric reduction process
+
+* "IRAF 4" <-- ? Creo que la última versión es 2.16. Por cierto, IRAF ha sido
+oficialmente discontinuado, o sea que no va a tener mantenimiento y no se
+recomienda más su uso (!)
+* "Final tables containing..." esta dicho dos veces (antepenúltimo y último
+parrafos) Sacar uno?
+* es necesario incluir una Tabla 5? No veo q aporte mucho, pero como te parezca
+* "Coordinates should not be read from images" <-- que significa esto?
+
+
+## The way \texttt{ASteCA} works.
+
+* cambie "background" por "(foregorund/background) field" y de ahi en adelante
+todos los "background" por field
+* Agregué dos oraciones sobre la masa: "The final mass value..."
+
+
+# GAIA data
+
+* "We want to emphasize that the \texttt{ASteCA} code will always fit...", pase
+este parrafo a la seccion siguiente donde corresponderia.
+
+
+# Cluster-by-cluster discussion on structural 
+
+* "stellar background" --> "stellar field"
+* "The mid panel in this fourth figure is the normalized application..." -->
+"is the kernel density estimate (KDE)..."
+
+## van den Bergh-Hagen 73
+
+* "both samples, for the cluster region and the stellar background are the
+same" --> lo saque, es muy confuso
+* arregle un poco el comentario sobre el resultado del AD test
+* puse la conclusion final sin el itemizado 'c)' porque no conecta con el
+parrafo de arriba.
+
+
+## NGC 4349
+
+* "reflected by a prominent but a tiny RDP", no qeuda claro es "prominent" o
+"tiny"?
+* Agregue una oracion ("It is worth noting that the distance found...") donde
+menciono que la distancia encontrada con paralaje es practicamente igual a la
+encontrada por ASteCA con datos fotometricos.
+* movi la oracion "The Kharchenko Atlas gives quite a similar value for the
+cluster age.." al final, me parece que queda mejor
+
+## Ruprecht 87
+
+* "The fail of our code" --> The inability of our code
+
+
+# Discussion...
+
+* "stellar background" --> "surrounding stellar field"
+* "In this last level" --> "Through this final process"
+* Table 6: sace columnas de (l, b) que ya estan en la Tabla 1
+* Table 6: corregí valores de distancia obtenida de paralajes de GAIADR2, luego de agregar la correccion de bias de Lindegren
+* Table 6 caption: "true (Yes) and probable (?) clusters" <-- que significa
+esto? No hay '(Yes)' ni '(?)' en esa table, solo '*'
+* asteca_vs_gaia.png, hay que rehacer con los nuevos valores de paralaje y mayor resolucion
+* "treated as suggested in GAIA tutorials (applying a Bayesian approach)" -->
+"processed within a Bayesian framework"
+* "while $PM(\alpha)$ and $PM(\delta)$ data were used as an additional control
+regarding different kinematic properties for cluster areas and the stellar
+backgrounds" <-- no me queda claro esto. Los movimientos propios los usamos para el test de Anderson-Darling, no para extraer distancias de los datos de Gaia. Saque esta oracion por las dudas
+* "are always a bit smaller" --> "are almost always a bit smaller"
+* "except the case of van den Bergh-Hagen 106" --> "excepting Trumpler
+13, van den Bergh-Hagen 106, and NGC 4349"
+* "even within the computed errors" --> lo quite
+
+** IMPORTANTE ***
+* Figura 'asteca_vs_gaia.png' --> la reemplace por otra que hice con dos
+paneles. En esta imagen muestro el resultado de usar la correccion de paralaje
+de Lindegren, pero tambien el resultado de usar la correccion presentada en el
+articulo de Xu et al (https://arxiv.org/abs/1903.04105) que es un poco mas
+grande (0.029 vs 0.075).
+Con esta ultima las distancias encontradas con el metodo Bayesiano quedan
+bastante mas parecidas a las fotometricas. De acuerdo a esto modifico el texto
+bastante, mayormente sacando la mencion del valor de 0.1 mas de Lindegren.
+
+* Figura 'xy_xz.png': de acuerdo a los cambios hechos que menciono arriba, posiblemente haya que modificar esta figura. Se puede mantener el corrimiento extremo de 0.1 mas de Lindegren, pero creo que sería mejor usar el de 0.075 de Xu et al.
+Tambien falta una referencia en el caption de esta figura.
+Hay un cuadrado vacio en la figura X-Y en la posicion (-1, 0)
+
+
+
+# Appendix
+
+## van de Bergh-Hagen 91
+
+* "Confirming the perception..", esto es un poco confuso pq en la oración anterior decis que *no* hay una estructura definida, pero en esta decís que los CMDs parecen de cúmulos abiertos. Lo saque.
+
+## Ruprecht 88
+
+* "combined $p$-value for proper motions and parallaxes are extremely low..." --> "...parallaxes is low (but still larger than the critical 5\% value usually employed as a threshold to reject the null hypothesis)..."
+
+## van den Bergh-Hagen 92
+
+* "..CCD shows a not far from the intrinsic line group of $F$- and $G$-type stars and another group of stars below the intrinsic line that could be $B$- and $A$- type stars displaced by reddening effect.." --> "..CCD shows, not far from the intrinsic line, a group of $F$- and $G$-type stars and another group of stars below the intrinsic line that could be $B$- and $A$- type stars displaced by the reddening effect"
+
+## Trumpler 13
+
+* "high enough" --> "particularly large"
+
+## van den Bergh-Hagen 106
+
+* "at the very center of the frame finding since.." --> "at the very center of the frame, since"
+
+## Ruprecht 162
+
+* "What puzzles us most is that..." --> saque esto porque es explicable: son valores altos de probabilidad porque son estrellas cuya distribucion es la mas distinta a la de las estrellas de campo. Esto no quiere decir *necesariamente* que sean estrellas de cúmulo, sino que se ven diferentes a las de campo.
+* "The color excess affecting the cluster is $E_{(B-V)} = 0.25$ inside the values given by S\&F2011 who estimate $E_{(B-V)} = 1.07$ at maximum and 0.91 at minimum." --> 0.25 no esta entre 0.91 y 1.07. El valor menor (0.91) debe estar mal.
+
+## Lynga 15
+
+* falta referencia para PN Hf 69
+* "from a statistical point of view" --> "from an astrophysical point of view"?
+* "see that this is highly probable" --> "which is highly probable"
+
+## Loden 565
+
+* "a few more than 108 yr old." --> a little older than 10^8 yrs
+
+## NGC 4230
+
+* "unable to find a cluster fitting the CMDs and CCD stellar structures..." --> esto no es del todo cierto ya que ASteCA encuentra siempre un "mejor ajuste". Lo cambie por: "fitted mainly a group of stars with low brightness"
